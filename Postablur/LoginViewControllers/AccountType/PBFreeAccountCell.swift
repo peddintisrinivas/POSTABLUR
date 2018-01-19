@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class PBFreeAccountCell: UITableViewCell {
 
     override func awakeFromNib() {
