@@ -18,8 +18,6 @@
 		B0A0204E2011DEE600D3837B /* PBFreeAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A020482011DEE600D3837B /* PBFreeAccountCell.xib */; };
 		B0A0204F2011DEE600D3837B /* PBPaidAccoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A020492011DEE600D3837B /* PBPaidAccoutCell.swift */; };
 		B0A020502011DEE600D3837B /* PBPaidAccoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A0204A2011DEE600D3837B /* PBPaidAccoutCell.xib */; };
-		B0A0206D2012151600D3837B /* QRScanCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0206B2012151600D3837B /* QRScanCodeVC.swift */; };
-		B0A0206E2012151600D3837B /* QRScanCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A0206C2012151600D3837B /* QRScanCodeVC.xib */; };
 		B0A436812010867000DDBA7C /* PBEmailAndPasswrdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4367F2010867000DDBA7C /* PBEmailAndPasswrdCell.swift */; };
 		B0A436822010867000DDBA7C /* PBEmailAndPasswrdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A436802010867000DDBA7C /* PBEmailAndPasswrdCell.xib */; };
 		B0A43685201086A500DDBA7C /* PBSocialLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A43683201086A500DDBA7C /* PBSocialLoginCell.swift */; };
@@ -58,8 +56,6 @@
 		B0A020482011DEE600D3837B /* PBFreeAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBFreeAccountCell.xib; sourceTree = "<group>"; };
 		B0A020492011DEE600D3837B /* PBPaidAccoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBPaidAccoutCell.swift; sourceTree = "<group>"; };
 		B0A0204A2011DEE600D3837B /* PBPaidAccoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBPaidAccoutCell.xib; sourceTree = "<group>"; };
-		B0A0206B2012151600D3837B /* QRScanCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanCodeVC.swift; sourceTree = "<group>"; };
-		B0A0206C2012151600D3837B /* QRScanCodeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScanCodeVC.xib; sourceTree = "<group>"; };
 		B0A4367F2010867000DDBA7C /* PBEmailAndPasswrdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBEmailAndPasswrdCell.swift; sourceTree = "<group>"; };
 		B0A436802010867000DDBA7C /* PBEmailAndPasswrdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PBEmailAndPasswrdCell.xib; sourceTree = "<group>"; };
 		B0A43683201086A500DDBA7C /* PBSocialLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBSocialLoginCell.swift; sourceTree = "<group>"; };
@@ -194,6 +190,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B0A11BF12012438700EE29EE /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		B0F4CA63200F20A400F39409 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +204,7 @@
 				B0F4CA6D200F20A400F39409 /* Products */,
 				0DB60148EBFCDC899C5862EF /* Pods */,
 				62F0BB0A1D89DFF54FAC2EF4 /* Frameworks */,
+				B0A11BF12012438700EE29EE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,7 +234,6 @@
 		B0F4CA81200F20B500F39409 /* LoginViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B0A020622012122500D3837B /* PBFeedVc */,
 				846ED28D2011E009004749ED /* SignInVC */,
 				846ED28C2011DFF0004749ED /* SignUpVC */,
 				846ED28B2011DFD8004749ED /* AccountType */,
@@ -312,7 +315,6 @@
 				B0A436922010BD5200DDBA7C /* PBHeaderCell.xib in Resources */,
 				B0F4CA7A200F20A400F39409 /* LaunchScreen.storyboard in Resources */,
 				B0A436A22010E40900DDBA7C /* PBSignUPVC.xib in Resources */,
-				B0A0206E2012151600D3837B /* QRScanCodeVC.xib in Resources */,
 				B0F4CA77200F20A400F39409 /* Assets.xcassets in Resources */,
 				B0A436A62010E61100DDBA7C /* PBLoginOptionsVC.xib in Resources */,
 				B0A0204C2011DEE600D3837B /* PBAccountTypeVC.xib in Resources */,
@@ -382,7 +384,6 @@
 				B0A0204D2011DEE600D3837B /* PBFreeAccountCell.swift in Sources */,
 				B0A436952010BF6900DDBA7C /* AddProfilePhotoCell.swift in Sources */,
 				B0A436992010D2EF00DDBA7C /* RegistrationCell.swift in Sources */,
-				B0A0206D2012151600D3837B /* QRScanCodeVC.swift in Sources */,
 				B0A436912010BD5200DDBA7C /* PBHeaderCell.swift in Sources */,
 				B0A0204B2011DEE600D3837B /* PBAccountTypeVC.swift in Sources */,
 				846ED2942011EFEA004749ED /* MBProgressHUD.m in Sources */,
