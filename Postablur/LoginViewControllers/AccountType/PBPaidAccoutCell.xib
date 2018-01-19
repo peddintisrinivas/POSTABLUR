@@ -29,7 +29,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDP-Tg-qS2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="268"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="254.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="producerGrey" translatesAutoresizingMaskIntoConstraints="NO" id="06M-6z-cG5">
                                 <rect key="frame" x="21" y="9" width="50" height="50"/>
@@ -39,49 +39,49 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCER:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVf-AT-Is5">
-                                <rect key="frame" x="87" y="18" width="141" height="32"/>
+                                <rect key="frame" x="87" y="18.5" width="141" height="31"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.99/mth." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXX-Ec-xTe">
-                                <rect key="frame" x="236" y="18" width="125.5" height="32"/>
+                                <rect key="frame" x="236" y="18.5" width="125.5" height="31"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- get 10 Likes to reveal a post." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYy-ON-JQS">
-                                <rect key="frame" x="88" y="65" width="327" height="19.5"/>
+                                <rect key="frame" x="88" y="64.5" width="326" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- view, share, and post content." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ate-oQ-8S9">
-                                <rect key="frame" x="88" y="94.5" width="327" height="19.5"/>
+                                <rect key="frame" x="88" y="93.5" width="326" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- donate and subscribe to Producers." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-LU-o1e">
-                                <rect key="frame" x="88" y="124" width="327" height="19"/>
+                                <rect key="frame" x="88" y="122.5" width="326" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- earn money from subscribers." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r85-iw-X8E">
-                                <rect key="frame" x="88" y="153" width="327" height="19"/>
+                                <rect key="frame" x="88" y="151.5" width="326" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- release pay-per-view content." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rh6-A6-kaS">
-                                <rect key="frame" x="88" y="182" width="327" height="19"/>
+                                <rect key="frame" x="88" y="180.5" width="326" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- get sponsored to promote content." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltm-mx-e3O">
-                                <rect key="frame" x="88" y="211" width="327" height="19"/>
+                                <rect key="frame" x="88" y="209.5" width="326" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -109,7 +109,7 @@
                             <constraint firstItem="RVf-AT-Is5" firstAttribute="height" secondItem="JDP-Tg-qS2" secondAttribute="height" multiplier="33:275" id="VG7-DF-yvZ"/>
                             <constraint firstItem="Ate-oQ-8S9" firstAttribute="top" secondItem="uYy-ON-JQS" secondAttribute="bottom" constant="10" id="g6z-u9-2ny"/>
                             <constraint firstItem="RVf-AT-Is5" firstAttribute="centerY" secondItem="06M-6z-cG5" secondAttribute="centerY" id="gAn-ls-2FL"/>
-                            <constraint firstAttribute="trailing" secondItem="uYy-ON-JQS" secondAttribute="trailing" constant="-1" id="i2m-eb-OD7"/>
+                            <constraint firstAttribute="trailing" secondItem="uYy-ON-JQS" secondAttribute="trailing" id="i2m-eb-OD7"/>
                             <constraint firstItem="vq8-LU-o1e" firstAttribute="leading" secondItem="Ate-oQ-8S9" secondAttribute="leading" id="iCL-z9-bCt"/>
                             <constraint firstItem="xXX-Ec-xTe" firstAttribute="leading" secondItem="RVf-AT-Is5" secondAttribute="trailing" constant="8" id="kLx-Xb-piV"/>
                             <constraint firstItem="uYy-ON-JQS" firstAttribute="leading" secondItem="RVf-AT-Is5" secondAttribute="leading" constant="1" id="kZC-uB-p3D"/>
@@ -124,7 +124,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3Z-Mh-pTY">
-                        <rect key="frame" x="0.0" y="275" width="414" height="59.5"/>
+                        <rect key="frame" x="0.0" y="261.5" width="414" height="59.5"/>
                         <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="40"/>
                         <state key="normal" title="NEXT">
@@ -140,7 +140,7 @@
                     <constraint firstAttribute="trailing" secondItem="x3Z-Mh-pTY" secondAttribute="trailing" id="PEh-Bl-hFn"/>
                     <constraint firstItem="x3Z-Mh-pTY" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="63:338" id="Rh3-Tw-KNC"/>
                     <constraint firstItem="JDP-Tg-qS2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Syz-su-pbv"/>
-                    <constraint firstItem="JDP-Tg-qS2" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="290:346" id="hPc-Ii-b2s"/>
+                    <constraint firstItem="JDP-Tg-qS2" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="255:320" id="hPc-Ii-b2s"/>
                     <constraint firstItem="x3Z-Mh-pTY" firstAttribute="top" secondItem="JDP-Tg-qS2" secondAttribute="bottom" constant="7" id="ogQ-y3-nEB"/>
                     <constraint firstAttribute="trailing" secondItem="JDP-Tg-qS2" secondAttribute="trailing" id="tRD-X0-zvm"/>
                     <constraint firstItem="JDP-Tg-qS2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="z3q-qS-Lbb"/>

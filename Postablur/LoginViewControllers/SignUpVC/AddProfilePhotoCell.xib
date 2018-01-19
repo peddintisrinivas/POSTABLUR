@@ -42,14 +42,14 @@
                                         <rect key="frame" x="104" y="22" width="106" height="99"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmH-8Q-drc">
-                                                <rect key="frame" x="9" y="0.0" width="88" height="70"/>
+                                                <rect key="frame" x="9.5" y="0.0" width="87" height="70"/>
                                                 <state key="normal" image="createGreyIconPostablurApp"/>
                                                 <connections>
                                                     <action selector="captureBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TGJ-bx-NEM"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUR-Pc-bXl">
-                                                <rect key="frame" x="0.0" y="80" width="55" height="20"/>
+                                                <rect key="frame" x="0.5" y="80" width="55" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="p2m-Oy-njF"/>
                                                     <constraint firstAttribute="height" constant="20" id="yFx-1H-wGc"/>
@@ -59,7 +59,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhW-sW-5BF">
-                                                <rect key="frame" x="59" y="80" width="51" height="20"/>
+                                                <rect key="frame" x="59.5" y="80" width="51" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="bNh-H8-0Kn"/>
                                                     <constraint firstAttribute="width" constant="51" id="rfk-4e-73L"/>
@@ -74,25 +74,23 @@
                                             <constraint firstItem="mmH-8Q-drc" firstAttribute="top" secondItem="Mk5-hX-OBW" secondAttribute="top" id="BHR-67-hzZ"/>
                                             <constraint firstItem="dhW-sW-5BF" firstAttribute="top" secondItem="VUR-Pc-bXl" secondAttribute="bottom" constant="-20" id="HS9-la-nSf"/>
                                             <constraint firstItem="dhW-sW-5BF" firstAttribute="leading" secondItem="VUR-Pc-bXl" secondAttribute="trailing" constant="4" id="InB-oN-i23"/>
-                                            <constraint firstItem="mmH-8Q-drc" firstAttribute="height" secondItem="Mk5-hX-OBW" secondAttribute="height" multiplier="70:99" id="OEr-6G-YNh"/>
-                                            <constraint firstItem="mmH-8Q-drc" firstAttribute="width" secondItem="Mk5-hX-OBW" secondAttribute="width" multiplier="87:105" id="Ufh-vP-gzk"/>
                                             <constraint firstItem="mmH-8Q-drc" firstAttribute="centerX" secondItem="Mk5-hX-OBW" secondAttribute="centerX" id="WT6-rp-e2v"/>
                                             <constraint firstItem="VUR-Pc-bXl" firstAttribute="top" secondItem="mmH-8Q-drc" secondAttribute="bottom" constant="10" id="zPL-aP-gPG"/>
                                             <constraint firstItem="VUR-Pc-bXl" firstAttribute="leading" secondItem="mmH-8Q-drc" secondAttribute="leading" constant="-9" id="zr5-Gd-eO9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddj-oO-mdW">
-                                        <rect key="frame" x="230" y="20" width="106" height="99"/>
+                                        <rect key="frame" x="250" y="20" width="106" height="99"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nb-7w-llz">
-                                                <rect key="frame" x="-3" y="-2" width="107" height="86"/>
+                                                <rect key="frame" x="14" y="3" width="78" height="79"/>
                                                 <state key="normal" image="userGreyUploadPhotoIcon"/>
                                                 <connections>
                                                     <action selector="uploadBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eDf-du-QfL"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbV-ma-LAP">
-                                                <rect key="frame" x="2" y="82" width="50" height="20"/>
+                                                <rect key="frame" x="14" y="80" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="VNT-PD-toC"/>
                                                     <constraint firstAttribute="width" constant="50" id="vP3-4u-WFb"/>
@@ -102,7 +100,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-nJ-LxX">
-                                                <rect key="frame" x="53" y="82" width="51" height="20"/>
+                                                <rect key="frame" x="65" y="80" width="51" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="51" id="ZbU-Yk-M5t"/>
                                                     <constraint firstAttribute="height" constant="20" id="qcf-BY-0aF"/>
@@ -115,14 +113,12 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="fcn-nJ-LxX" firstAttribute="top" secondItem="NbV-ma-LAP" secondAttribute="bottom" constant="-20" id="2NP-sz-w0a"/>
-                                            <constraint firstItem="7nb-7w-llz" firstAttribute="width" secondItem="ddj-oO-mdW" secondAttribute="width" multiplier="106:99" constant="-6" id="7CV-k5-Npv"/>
                                             <constraint firstItem="NbV-ma-LAP" firstAttribute="top" secondItem="7nb-7w-llz" secondAttribute="bottom" constant="-2" id="LsJ-Wn-TMV"/>
-                                            <constraint firstItem="fcn-nJ-LxX" firstAttribute="trailing" secondItem="7nb-7w-llz" secondAttribute="trailing" id="OUp-Hx-ZlO"/>
-                                            <constraint firstItem="NbV-ma-LAP" firstAttribute="leading" secondItem="7nb-7w-llz" secondAttribute="leading" constant="5" id="YTX-1R-N12"/>
+                                            <constraint firstItem="fcn-nJ-LxX" firstAttribute="leading" secondItem="NbV-ma-LAP" secondAttribute="trailing" constant="1" id="OVC-9r-Zom"/>
+                                            <constraint firstItem="NbV-ma-LAP" firstAttribute="leading" secondItem="7nb-7w-llz" secondAttribute="leading" id="YTX-1R-N12"/>
                                             <constraint firstItem="fcn-nJ-LxX" firstAttribute="top" secondItem="7nb-7w-llz" secondAttribute="bottom" constant="-2" id="map-ax-aOp"/>
-                                            <constraint firstItem="7nb-7w-llz" firstAttribute="top" secondItem="ddj-oO-mdW" secondAttribute="top" constant="-2" id="sjL-7Y-0wR"/>
-                                            <constraint firstItem="7nb-7w-llz" firstAttribute="height" secondItem="ddj-oO-mdW" secondAttribute="height" multiplier="86:99" id="wN2-d2-NKE"/>
-                                            <constraint firstItem="7nb-7w-llz" firstAttribute="centerX" secondItem="ddj-oO-mdW" secondAttribute="centerX" constant="-2" id="x1C-n5-SrG"/>
+                                            <constraint firstItem="7nb-7w-llz" firstAttribute="top" secondItem="ddj-oO-mdW" secondAttribute="top" constant="3" id="sjL-7Y-0wR"/>
+                                            <constraint firstItem="7nb-7w-llz" firstAttribute="centerX" secondItem="ddj-oO-mdW" secondAttribute="centerX" id="x1C-n5-SrG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -134,7 +130,7 @@
                                     <constraint firstItem="ddj-oO-mdW" firstAttribute="height" secondItem="Mk5-hX-OBW" secondAttribute="height" id="Pkg-6j-Yec"/>
                                     <constraint firstItem="ddj-oO-mdW" firstAttribute="top" secondItem="av9-jS-z6m" secondAttribute="top" constant="20" id="hIZ-f1-PEg"/>
                                     <constraint firstItem="Mk5-hX-OBW" firstAttribute="top" secondItem="av9-jS-z6m" secondAttribute="top" constant="22" id="pcL-Em-tU2"/>
-                                    <constraint firstItem="ddj-oO-mdW" firstAttribute="leading" secondItem="Mk5-hX-OBW" secondAttribute="trailing" constant="20" id="ryH-wI-pGj"/>
+                                    <constraint firstItem="ddj-oO-mdW" firstAttribute="leading" secondItem="Mk5-hX-OBW" secondAttribute="trailing" constant="40" id="ryH-wI-pGj"/>
                                     <constraint firstItem="ddj-oO-mdW" firstAttribute="width" secondItem="Mk5-hX-OBW" secondAttribute="width" id="ywU-WF-rTQ"/>
                                 </constraints>
                             </view>
