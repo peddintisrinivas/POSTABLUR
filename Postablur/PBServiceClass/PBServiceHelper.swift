@@ -7,16 +7,57 @@
 //
 
 import UIKit
+import Alamofire
 
 class PBServiceHelper: NSObject
 {
-    typealias PBPostCompletionHandler = (Bool?, String?, AnyObject?) -> Swift.Void
+    typealias PBPostCompletionHandler = (Bool?, AnyObject?, String?) -> Swift.Void
     
-    typealias PBGetCompletionHandler = (Bool?, String?, AnyObject?) -> Swift.Void
+    //typealias PBGetCompletionHandler = (Bool?, AnyObject?, String?) -> Swift.Void
+    
+    var appdelegate : AppDelegate!
+    
+    // MARK: Upload Profile Image
+    func uploadProfileImage(image: UIImage, imageName: String)
+    {
+        self.appdelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if appdelegate.isNetworkReachable() == false
+        {
+            DispatchQueue.main.async(execute: { () -> Void in
+                
+            })
+            return
+        }
+        let urlString = String(format: Urls.uploadImageUrl)
+        
+        let request = NSMutableURLRequest(url: NSURL(string:urlString)! as URL)
+        
+        let session = URLSession.shared
+        
+        request.httpMethod = "POST"
+        
+        request.allHTTPHeaderFields = ["content-type":"multipart/form-data",Urls.AccessToken: Urls.AccessTokenValue]
+        
+        //request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+
+        
+        
+     
+    }
     
     
     func post(url:String, parameters:NSDictionary, completion: @escaping PBPostCompletionHandler)
     {
+        self.appdelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if appdelegate.isNetworkReachable() == false
+        {
+            DispatchQueue.main.async(execute: { () -> Void in
+                completion(false, nil, "No Internet Connection")
+            })
+            return
+        }
         
         let request = NSMutableURLRequest(url: NSURL(string:url)! as URL)
         
@@ -31,7 +72,9 @@ class PBServiceHelper: NSObject
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             guard data != nil else
             {
-                //print("no data found: \(error)")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completion(false, nil, "Something went wrong")
+                })
                 return
             }
             
@@ -41,7 +84,7 @@ class PBServiceHelper: NSObject
                 {
                     DispatchQueue.main.async
                     {
-                        completion(true, nil, json)
+                        completion(true, json, nil)
                     }
                 }
                 else
@@ -49,7 +92,7 @@ class PBServiceHelper: NSObject
                     let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                     //print("Error could not parse JSON: \(jsonStr)")
                     //failed
-                    completion(false, jsonStr as String?, nil)
+                    completion(false,jsonStr, nil)
                     
                 }
             }
@@ -57,7 +100,7 @@ class PBServiceHelper: NSObject
             {
                 let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 ///print("Error could not parse JSON: '\(jsonStr)'")
-                completion(false, jsonStr as String?, nil)
+                completion(false, jsonStr, nil)
                 
             }
         }
@@ -65,7 +108,7 @@ class PBServiceHelper: NSObject
         task.resume()
     }
     
-    func get(url:String, completion: @escaping PBGetCompletionHandler)
+    /*func get(url:String, completion: @escaping PBGetCompletionHandler)
     {
         
         let request = NSMutableURLRequest(url: NSURL(string:url)! as URL)
@@ -111,5 +154,5 @@ class PBServiceHelper: NSObject
         }
         
         task.resume()
-    }
+    }*/
 }

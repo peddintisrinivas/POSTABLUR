@@ -8,18 +8,25 @@
 
 import UIKit
 
-protocol AddProfilePhotoCellDelegate {
+protocol AddProfilePhotoCellDelegate
+{
     
-    func pbCaptureAPhotoBtnDidTap()
+    func pbCaptureAPhotoBtnDidTap(capturedPhotoWidth: CGFloat,capturedPhotoHeight: CGFloat)
     
-    func pbUploadAPhotoBtnDidTap()
+    func pbUploadAPhotoBtnDidTap(uploadPhotoWidth: CGFloat,uploadPhotoHeight: CGFloat)
 
 }
-class AddProfilePhotoCell: UITableViewCell {
+class AddProfilePhotoCell: UITableViewCell
+{
 
+    @IBOutlet var captureBtn: UIButton!
+    
+    
+    @IBOutlet var uploadBtn: UIButton!
     var delegate : AddProfilePhotoCellDelegate? = nil
 
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
@@ -28,7 +35,7 @@ class AddProfilePhotoCell: UITableViewCell {
     {
         if let delegate = self.delegate
         {
-            delegate.pbCaptureAPhotoBtnDidTap()
+            delegate.pbCaptureAPhotoBtnDidTap(capturedPhotoWidth: captureBtn.frame.width, capturedPhotoHeight: captureBtn.frame.height)
             
         }
     }
@@ -36,11 +43,12 @@ class AddProfilePhotoCell: UITableViewCell {
     {
         if let delegate = self.delegate
         {
-            delegate.pbUploadAPhotoBtnDidTap()
+            delegate.pbUploadAPhotoBtnDidTap(uploadPhotoWidth: uploadBtn.frame.width, uploadPhotoHeight: uploadBtn.frame.height)
             
         }
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

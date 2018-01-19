@@ -8,12 +8,20 @@
 
 import UIKit
 
-class PBSignUPVC: UIViewController {
+class PBSignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate
+{
 
     @IBOutlet weak var signUpTableView: UITableView!
+    var imageWidth : CGFloat!
+    var imageHeight : CGFloat!
     
-    override func viewDidLoad() {
+    var appdelegate : AppDelegate!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        self.appdelegate = UIApplication.shared.delegate as! AppDelegate
         
         let headerNib = UINib(nibName: NibNamed.PBHeaderCell.rawValue, bundle: nil)
         self.signUpTableView.register(headerNib, forCellReuseIdentifier: CellIdentifiers.PBHeaderCellIdentifier.rawValue)
@@ -25,11 +33,9 @@ class PBSignUPVC: UIViewController {
         self.signUpTableView.register(registrationNib, forCellReuseIdentifier: CellIdentifiers.RegistrationCellIdentifier.rawValue)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    
+ 
 }
 // MARK: Tableview Datasource and Delegate
 extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
@@ -92,16 +98,116 @@ extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
     {
         
     }
+    
+    // MARK: Image picker delegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any])
+    {
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            let resizedImage = chosenImage.resizeImage(image: chosenImage, newWidth: self.imageWidth)!
+            self.uploadprofileImageToServer(selectedImage: resizedImage)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadprofileImageToServer(selectedImage : UIImage)
+    {
+         /*let urlString = Urls.uploadImageUrl
+         let requestDict = ["UploadContent":"","Mediatype":"1"]
+        
+         PBServiceHelper().uploadProfileImage(image: selectedImage, imageName: "")*/
+    }
 }
 // MARK: -- REGISTRATION DELEGATES
 extension PBSignUPVC : RegistrationCellDelegate
 {
-    func pbnextBtnDidTap()
+    func pbnextBtnDidTap(userNameTF: UITextField, emailTF: UITextField, passwordTF: UITextField, reTypePasswordTF: UITextField)
     {
-        let accountTypeVC = PBAccountTypeVC()
-        self.navigationController?.pushViewController(accountTypeVC, animated: true);
-
+        if (userNameTF.text?.isEmpty)! && (emailTF.text?.isEmpty)! && (passwordTF.text?.isEmpty)! && (reTypePasswordTF.text?.isEmpty)!
+        {
+             self.appdelegate.alert(vc: self, message: "Enter all fields", title: "SignUp")
+             return
+        }
+        
+        if (userNameTF.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter username", title: "SignUp")
+            return
+        }
+        
+        if (emailTF.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter email", title: "SignUp")
+            return
+        }
+        
+        if !ValidationHelper.isValidEmail(emailStr: (emailTF.text)!)
+        {
+            self.appdelegate.alert(vc: self, message: "Enter valid email", title: "SignUp")
+            return
+        }
+        
+        if (passwordTF.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter password", title: "SignUp")
+            return
+        }
+            
+        if (reTypePasswordTF.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter retype password", title: "SignUp")
+            return
+        }
+            
+        if (passwordTF.text?.count)! < 6
+        {
+            self.appdelegate.alert(vc: self, message: "Password minimum 6 digits", title: "SignUp")
+            return
+        }
+        
+        if (passwordTF.text) != (reTypePasswordTF.text)
+        {
+            self.appdelegate.alert(vc: self, message: "Both passwords must same", title: "SignUp")
+            return
+        }
+            
+        let urlString = String(format: "%@/UserRegistration", arguments: [Urls.mainUrl]);
+        let requestDict = ["UserName":userNameTF.text!,"Email":emailTF.text!,"Password":passwordTF.text!,"DOB":"","DBAPin":"","Profileurl":"need to send",
+            "ProfileAd":"","Accounttype":"1","PhoneNumber":"","CountryCode":"+91","Registrationtype":"1",
+            "DeviceId":"1234566","DeviceType":"1"] as [String : Any]
+        
+        self.appdelegate.showActivityIndictor(titleString: "SignIn", subTitleString: "")
+        
+        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (success : Bool?, responseObject : AnyObject?, errorString : String?) in
+            
+            self.appdelegate.hideActivityIndicator()
+            
+            guard errorString == nil else
+            {
+                self.appdelegate.alert(vc: self, message: errorString!, title: "SignIn")
+                return
+            }
+            
+            guard success == true else
+            {
+                return
+            }
+            guard responseObject == nil else
+            {
+                print(responseObject)
+                
+                return
+            }
+        }
     }
+        
+
     func pbloginBtnDidTap()
     {
         
@@ -111,14 +217,26 @@ extension PBSignUPVC : RegistrationCellDelegate
 // MARK: --  ADDPROFILE DELEGATES
 extension PBSignUPVC : AddProfilePhotoCellDelegate
 {
-    func pbCaptureAPhotoBtnDidTap()
+    func pbCaptureAPhotoBtnDidTap(capturedPhotoWidth: CGFloat,capturedPhotoHeight: CGFloat)
     {
-        
+        self.imageWidth = capturedPhotoWidth
+        self.imageHeight = capturedPhotoHeight
+        let pbImagePickerController = UIImagePickerController()
+        pbImagePickerController.delegate = self
+        pbImagePickerController.allowsEditing = true
+        pbImagePickerController.sourceType = UIImagePickerControllerSourceType.camera
+        present(pbImagePickerController, animated: true, completion: nil)
     }
     
-    func pbUploadAPhotoBtnDidTap()
+    func pbUploadAPhotoBtnDidTap(uploadPhotoWidth: CGFloat, uploadPhotoHeight: CGFloat)
     {
-        
+        self.imageWidth = uploadPhotoWidth
+        self.imageHeight = uploadPhotoHeight
+        let pbImagePickerController = UIImagePickerController()
+        pbImagePickerController.delegate = self
+        pbImagePickerController.allowsEditing = true
+        pbImagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(pbImagePickerController, animated: true, completion: nil)
         
     }
 }
@@ -131,4 +249,5 @@ extension PBSignUPVC : PBHeaderCellDelegate
         
     }
 }
+
 

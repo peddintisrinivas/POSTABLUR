@@ -11,7 +11,7 @@ import UIKit
 protocol PBEmailAndPasswrdCellDelegate
 {
     
-    func pbLoginBtnDidTap()
+    func pbLoginBtnDidTap(emailTextField: UITextField, passwordTextField : UITextField)
     func pbForgetPasswordDidTap()
 
 }
@@ -25,6 +25,7 @@ class PBEmailAndPasswrdCell: UITableViewCell
     @IBOutlet weak var loginButton : UIButton!
     @IBOutlet weak var forgetPasswordButton : UIButton!
     var emailDelegate : PBEmailAndPasswrdCellDelegate? = nil
+    
 
     override func awakeFromNib()
     {
@@ -36,11 +37,11 @@ class PBEmailAndPasswrdCell: UITableViewCell
 
     @IBAction func loginBtnAction(_ sender: UIButton)
     {
-        if self.emailDelegate != nil
+        if let emailDelegate = self.emailDelegate
         {
-            self.emailDelegate?.pbLoginBtnDidTap()
+            emailDelegate.pbLoginBtnDidTap(emailTextField: emailTextField, passwordTextField: passwordTextField)
+       
         }
-        
     }
     @IBAction func forgetPasswordButtonAction(_ sender: UIButton)
     {

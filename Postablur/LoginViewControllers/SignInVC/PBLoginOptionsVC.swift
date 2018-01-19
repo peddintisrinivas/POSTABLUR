@@ -8,12 +8,17 @@
 
 import UIKit
 
-class PBLoginOptionsVC: UIViewController {
+class PBLoginOptionsVC: UIViewController
+{
 
     @IBOutlet weak var loginTableView: UITableView!
     
-    override func viewDidLoad() {
+    var appdelegate : AppDelegate!
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        self.appdelegate = UIApplication.shared.delegate as! AppDelegate
         
         let logoNib = UINib(nibName: NibNamed.PBLogoCell.rawValue, bundle: nil)
         self.loginTableView.register(logoNib, forCellReuseIdentifier: CellIdentifiers.LogoHeaderReuseIdentifier.rawValue)
@@ -27,12 +32,7 @@ class PBLoginOptionsVC: UIViewController {
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
+   
 }
 // MARK: Tableview Datasource and Delegate
 extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
@@ -100,10 +100,58 @@ extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
 // MARK: --  EMAIL AND PASSWORD DELEGATES
 extension PBLoginOptionsVC : PBEmailAndPasswrdCellDelegate
 {
-    func pbLoginBtnDidTap()
+    func pbLoginBtnDidTap(emailTextField: UITextField, passwordTextField: UITextField)
     {
+        if (emailTextField.text?.isEmpty)! && (passwordTextField.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter email and password", title: "SignIn")
+            return
+        }
+        if (emailTextField.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter email", title: "SignIn")
+            return
+        }
+        if !ValidationHelper.isValidEmail(emailStr: emailTextField.text!)
+        {
+            self.appdelegate.alert(vc: self, message: "Enter valid email", title: "SignIn")
+            return
+        }
+        if (passwordTextField.text?.isEmpty)!
+        {
+            self.appdelegate.alert(vc: self, message: "Enter password", title: "SignIn")
+            return
+        }
         
+        let urlString = String(format: "%@/LoginVerify", arguments: [Urls.mainUrl]);
+        let requestDict = ["Username":emailTextField.text,"Password":passwordTextField.text]
+        
+        self.appdelegate.showActivityIndictor(titleString: "SignIn", subTitleString: "")
+        
+        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (success : Bool?, responseObject : AnyObject?, errorString : String?) in
+            
+            self.appdelegate.hideActivityIndicator()
+            
+            guard errorString == nil else
+            {
+                self.appdelegate.alert(vc: self, message: errorString!, title: "SignIn")
+                return
+            }
+            
+            guard success == true else
+            {
+                return
+            }
+            guard responseObject == nil else
+            {
+               print(responseObject)
+               let signUpVC = PBSignUPVC()
+               self.navigationController?.pushViewController(signUpVC, animated: true);
+               return
+            }
+        }
     }
+  
     func pbForgetPasswordDidTap()
     {
         

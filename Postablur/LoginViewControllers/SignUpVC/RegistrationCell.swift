@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol RegistrationCellDelegate {
+protocol RegistrationCellDelegate
+{
     
-    func pbnextBtnDidTap()
+    func pbnextBtnDidTap(userNameTF : UITextField, emailTF : UITextField, passwordTF : UITextField, reTypePasswordTF : UITextField)
     
     func pbloginBtnDidTap()
     
 }
-class RegistrationCell: UITableViewCell {
+class RegistrationCell: UITableViewCell
+{
 
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -25,7 +27,8 @@ class RegistrationCell: UITableViewCell {
     @IBOutlet weak var nextBtn : UIButton!
     var registerDelegate : RegistrationCellDelegate? = nil
 
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
       
         emailTF.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.Email.rawValue)
@@ -34,9 +37,12 @@ class RegistrationCell: UITableViewCell {
         
         passwordTF.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.Password.rawValue)
         
-        reTypePasswordTF.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.RetypePassword.rawValue)    }
+        reTypePasswordTF.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.RetypePassword.rawValue)
+        
+    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -46,7 +52,7 @@ class RegistrationCell: UITableViewCell {
     {
         if let registerDelegate = self.registerDelegate
         {
-            registerDelegate.pbnextBtnDidTap()
+            registerDelegate.pbnextBtnDidTap(userNameTF: userNameTF, emailTF: emailTF, passwordTF: passwordTF, reTypePasswordTF: reTypePasswordTF)
         
         }
         
