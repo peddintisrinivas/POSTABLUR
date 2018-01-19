@@ -52,7 +52,7 @@ extension PBAccountTypeVC : UITableViewDataSource, UITableViewDelegate
             return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 200.0)
         }
         else{
-            return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 320.0)
+            return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 325.0)
         }
     }
     
