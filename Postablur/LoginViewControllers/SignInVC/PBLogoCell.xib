@@ -14,31 +14,31 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PBLogoCellID" rowHeight="249" id="KGk-i7-Jjw" customClass="PBLogoCell" customModule="Postablur" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="249"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="248.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="261.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ur-Eb-aC8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="249"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitePostablur" translatesAutoresizingMaskIntoConstraints="NO" id="lkG-oR-lWs">
-                                <rect key="frame" x="172" y="32" width="85" height="85"/>
+                                <rect key="frame" x="170" y="41" width="89" height="80"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postablur" translatesAutoresizingMaskIntoConstraints="NO" id="gdx-hr-H6M">
-                                <rect key="frame" x="77" y="117" width="260" height="72"/>
+                                <rect key="frame" x="77" y="121" width="260" height="72"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gdx-hr-H6M" firstAttribute="height" secondItem="7Ur-Eb-aC8" secondAttribute="height" multiplier="72:249" id="Ar9-6z-ts0"/>
+                            <constraint firstItem="gdx-hr-H6M" firstAttribute="height" secondItem="7Ur-Eb-aC8" secondAttribute="height" multiplier="72:262" id="Ar9-6z-ts0"/>
                             <constraint firstItem="gdx-hr-H6M" firstAttribute="centerX" secondItem="7Ur-Eb-aC8" secondAttribute="centerX" id="J1b-NH-rl7"/>
                             <constraint firstItem="gdx-hr-H6M" firstAttribute="width" secondItem="7Ur-Eb-aC8" secondAttribute="width" multiplier="260:414" id="Lq8-TC-Yzo"/>
-                            <constraint firstItem="lkG-oR-lWs" firstAttribute="width" secondItem="7Ur-Eb-aC8" secondAttribute="width" multiplier="85:414" id="PNp-B9-qza"/>
+                            <constraint firstItem="lkG-oR-lWs" firstAttribute="width" secondItem="7Ur-Eb-aC8" secondAttribute="width" multiplier="89:414" id="PNp-B9-qza"/>
                             <constraint firstItem="lkG-oR-lWs" firstAttribute="centerX" secondItem="7Ur-Eb-aC8" secondAttribute="centerX" constant="7" id="VLS-hl-PnT"/>
                             <constraint firstItem="lkG-oR-lWs" firstAttribute="centerY" secondItem="7Ur-Eb-aC8" secondAttribute="centerY" constant="-50" id="cgV-oi-hUD"/>
-                            <constraint firstItem="lkG-oR-lWs" firstAttribute="height" secondItem="7Ur-Eb-aC8" secondAttribute="height" multiplier="85:249" id="qqe-vE-jK0"/>
+                            <constraint firstItem="lkG-oR-lWs" firstAttribute="height" secondItem="7Ur-Eb-aC8" secondAttribute="height" multiplier="80:262" id="qqe-vE-jK0"/>
                             <constraint firstItem="gdx-hr-H6M" firstAttribute="top" secondItem="lkG-oR-lWs" secondAttribute="bottom" id="z0w-Lx-G6p"/>
                         </constraints>
                     </view>
