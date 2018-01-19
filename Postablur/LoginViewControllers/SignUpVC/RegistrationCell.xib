@@ -112,7 +112,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daF-Eq-IDe">
-                                        <rect key="frame" x="261" y="18" width="69" height="21"/>
+                                        <rect key="frame" x="261" y="16" width="69" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="bKg-kp-yUu"/>
                                             <constraint firstAttribute="height" constant="21" id="oUj-jV-zAE"/>
@@ -136,7 +136,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="4w1-r5-RVV" firstAttribute="leading" secondItem="Us1-Vf-3Ht" secondAttribute="leading" constant="59" id="E7Q-vc-ReD"/>
-                                    <constraint firstItem="daF-Eq-IDe" firstAttribute="centerY" secondItem="Us1-Vf-3Ht" secondAttribute="centerY" id="FFB-20-str"/>
+                                    <constraint firstItem="daF-Eq-IDe" firstAttribute="centerY" secondItem="Us1-Vf-3Ht" secondAttribute="centerY" constant="-2" id="FFB-20-str"/>
                                     <constraint firstAttribute="height" constant="57" id="MZ9-0E-yDe"/>
                                     <constraint firstItem="daF-Eq-IDe" firstAttribute="leading" secondItem="4w1-r5-RVV" secondAttribute="trailing" constant="-4" id="OhL-YT-FHF"/>
                                     <constraint firstItem="4w1-r5-RVV" firstAttribute="top" secondItem="Us1-Vf-3Ht" secondAttribute="top" constant="15" id="ydB-a8-U8D"/>

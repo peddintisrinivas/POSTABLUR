@@ -29,7 +29,6 @@ class PBLoginOptionsVC: UIViewController
         let socialNib = UINib(nibName: NibNamed.PBSocialLoginCell.rawValue, bundle: nil)
         self.loginTableView.register(socialNib, forCellReuseIdentifier: CellIdentifiers.SocialReuseIdentifier.rawValue)
         
-        
     }
     
    
@@ -47,7 +46,7 @@ extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
     {
         if indexPath.section == 0
         {
-            return Constants.calculateDynamicTableviewCellHeight(cellHeight: 249.0)
+            return Constants.calculateDynamicTableviewCellHeight(cellHeight: 262.0)
 
         }
         else if indexPath.section == 1

@@ -45,6 +45,7 @@ class Constants: NSObject {
         let cellDefaultHeight : CGFloat = cellHeight
         let screenDefaultHeight : CGFloat = UIScreen.main.bounds.size.height
         let factor : CGFloat = cellDefaultHeight/screenDefaultHeight
+        print(factor)
         return factor * UIScreen.main.bounds.size.height
     }
 }
