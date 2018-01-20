@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RevealSettingsVC" customModule="Postablur" customModuleProvider="target">
             <connections>
+                <outlet property="revealSettingsTableView" destination="IKz-7G-RlW" id="GDE-yb-dih"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,6 +49,9 @@
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" image="keyboardBackspace"/>
+                            <connections>
+                                <action selector="backBtnAction:" destination="-1" eventType="touchUpInside" id="fDJ-Xa-7CU"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,6 +69,10 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-7G-RlW">
                     <rect key="frame" x="0.0" y="471" width="414" height="202"/>
                     <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="oLf-6g-jm5"/>
+                        <outlet property="delegate" destination="-1" id="L9F-Ue-fxZ"/>
+                    </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heF-Ek-01F">
                     <rect key="frame" x="0.0" y="673" width="414" height="62.5"/>
