@@ -276,7 +276,10 @@ extension PBLoginOptionsVC : PBEmailAndPasswrdCellDelegate
                             if statusCode == "0"
                             {
                                 
-                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                let qrCodeScannerVC = QRCodeScannerVC()
+                                self.navigationController?.pushViewController(qrCodeScannerVC, animated: true)
+
+                                //self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
                                 return
                             }
                             else
