@@ -34,6 +34,8 @@
 		B0A436A22010E40900DDBA7C /* PBSignUPVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A436A02010E40900DDBA7C /* PBSignUPVC.xib */; };
 		B0A436A52010E61100DDBA7C /* PBLoginOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A436A32010E61100DDBA7C /* PBLoginOptionsVC.swift */; };
 		B0A436A62010E61100DDBA7C /* PBLoginOptionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A436A42010E61100DDBA7C /* PBLoginOptionsVC.xib */; };
+		B0ECE20C20135D7B004EE062 /* QRCodeScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ECE20A20135D7B004EE062 /* QRCodeScannerVC.swift */; };
+		B0ECE20D20135D7B004EE062 /* QRCodeScannerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0ECE20B20135D7B004EE062 /* QRCodeScannerVC.xib */; };
 		B0F4CA70200F20A400F39409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F4CA6F200F20A400F39409 /* AppDelegate.swift */; };
 		B0F4CA77200F20A400F39409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0F4CA76200F20A400F39409 /* Assets.xcassets */; };
 		B0F4CA7A200F20A400F39409 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F4CA78200F20A400F39409 /* LaunchScreen.storyboard */; };
@@ -72,6 +74,8 @@
 		B0A436A02010E40900DDBA7C /* PBSignUPVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PBSignUPVC.xib; sourceTree = "<group>"; };
 		B0A436A32010E61100DDBA7C /* PBLoginOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBLoginOptionsVC.swift; sourceTree = "<group>"; };
 		B0A436A42010E61100DDBA7C /* PBLoginOptionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PBLoginOptionsVC.xib; sourceTree = "<group>"; };
+		B0ECE20A20135D7B004EE062 /* QRCodeScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerVC.swift; sourceTree = "<group>"; };
+		B0ECE20B20135D7B004EE062 /* QRCodeScannerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeScannerVC.xib; sourceTree = "<group>"; };
 		B0F4CA6C200F20A400F39409 /* Postablur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postablur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F4CA6F200F20A400F39409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0F4CA76200F20A400F39409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				846ED2892011DAB1004749ED /* Urls.swift */,
 				B0F4CA86200F24DB00F39409 /* NavConstants.swift */,
 				B0F4CA6F200F20A400F39409 /* AppDelegate.swift */,
+				B0ECE20A20135D7B004EE062 /* QRCodeScannerVC.swift */,
+				B0ECE20B20135D7B004EE062 /* QRCodeScannerVC.xib */,
 			);
 			path = LoginViewControllers;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				B0A436A22010E40900DDBA7C /* PBSignUPVC.xib in Resources */,
 				B0F4CA77200F20A400F39409 /* Assets.xcassets in Resources */,
 				B0A436A62010E61100DDBA7C /* PBLoginOptionsVC.xib in Resources */,
+				B0ECE20D20135D7B004EE062 /* QRCodeScannerVC.xib in Resources */,
 				B0A0204C2011DEE600D3837B /* PBAccountTypeVC.xib in Resources */,
 				B0A436822010867000DDBA7C /* PBEmailAndPasswrdCell.xib in Resources */,
 				B0A0204E2011DEE600D3837B /* PBFreeAccountCell.xib in Resources */,
@@ -408,6 +415,7 @@
 				B0A4368C20109F7600DDBA7C /* PBLogoCell.swift in Sources */,
 				846ED28A2011DAB1004749ED /* Urls.swift in Sources */,
 				B0A436A12010E40900DDBA7C /* PBSignUPVC.swift in Sources */,
+				B0ECE20C20135D7B004EE062 /* QRCodeScannerVC.swift in Sources */,
 				B0A43685201086A500DDBA7C /* PBSocialLoginCell.swift in Sources */,
 				846ED29B2012335A004749ED /* UIImage+ResizeImage.swift in Sources */,
 			);
