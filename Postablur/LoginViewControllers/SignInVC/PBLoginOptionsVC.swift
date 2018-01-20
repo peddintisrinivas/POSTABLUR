@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class PBLoginOptionsVC: UIViewController
 {
@@ -44,29 +46,80 @@ class PBLoginOptionsVC: UIViewController
         })
     }
     
-    
-    @objc internal func keyboardWasShown(aNotification: NSNotification)
+    func getFBUserData()
     {
-        UIView.animate(withDuration: 0.2, animations: {
-            
-            if let keyboardHeight = (aNotification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-                self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
-            }
-        })
-        
+        if((FBSDKAccessToken.current()) != nil)
+        {
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler:
+                { (connection, result, error) -> Void in
+                    if (error == nil)
+                    {
+                        //everything works print the user data
+                        print("result: \(String(describing: result))")
+                        
+                        let dict = result as! NSDictionary
+                        let email = dict["email"] as! String
+                        let name = dict["name"] as! String
+                        let fbId = dict["id"] as! String
+                        
+                        let profileImageUrl = "https://graph.facebook.com/\(fbId)/picture";
+                        
+                        let urlString = String(format: "%@/UserRegistration", arguments: [Urls.mainUrl]);
+                        let requestDict = ["UserName": name,"Email": email,"Password": "","DOB":"","DBAPin":"","Profileurl": profileImageUrl,"ProfileAd":"","Accounttype":"1","PhoneNumber":"","CountryCode":"+91","Registrationtype":"3","DeviceId":"123456","DeviceType":"1"] as [String : Any]
+                        
+                        self.appdelegate.showActivityIndictor(titleString: "Facebook SignIn", subTitleString: "")
+                        
+                        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (responseObject : AnyObject?, error : Error?) in
+                            
+                            self.appdelegate.hideActivityIndicator()
+                            if error == nil
+                            {
+                                if responseObject != nil
+                                {
+                                    if let responseDict = responseObject as? [String : AnyObject]
+                                    {
+                                        if let resultArray = responseDict["Results"] as! [NSDictionary]!
+                                        {
+                                            let result = resultArray.first!
+                                            
+                                            let statusCode = result["StatusCode"] as! String
+                                            let statusMessage = result["StatusMsg"] as! String
+                                            
+                                            if statusCode == "0"
+                                            {
+                                                self.appdelegate.alert(vc: self, message: statusMessage, title: "Facebook SignIn")
+                                                return
+                                            }
+                                            else
+                                            {
+                                                self.appdelegate.alert(vc: self, message: statusMessage, title: "Facebook SignIn")
+                                                return
+                                            }
+                                        }
+                                    }
+                                    if let responseStr = responseObject as? String
+                                    {
+                                        self.appdelegate.alert(vc: self, message: responseStr, title: "Facebook SignIn")
+                                        return
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "Facebook SignIn")
+                                    return
+                                }
+                            }
+                            else
+                            {
+                                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "Facebook SignIn")
+                                return
+                            }
+                        }
+                    }
+            })
+        }
     }
-    @objc internal func keyboardWillBeHidden(aNotification: NSNotification)
-    {
-        UIView.animate(withDuration: 0.2, animations: {
-            
-            self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        })
-    }
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    
 }
 extension PBLoginOptionsVC : UITextFieldDelegate{
     
@@ -99,7 +152,8 @@ extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
         {
             return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 145.0)
         }
-        else{
+        else
+        {
             return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 150.0)
         }
     }
@@ -249,7 +303,49 @@ extension PBLoginOptionsVC : PBSocialLoginCellDelegate
     }
     func pbfaceBookBtnDidTap()
     {
-        
+        if appdelegate.isNetworkReachable() == true
+        {
+            if (FBSDKAccessToken.current() != nil)
+            {
+                // User is already logged in, do work such as go to next view controller.
+                print("already logged in ")
+                self.getFBUserData()
+                
+                return
+            }
+            
+            let faceBookLoginManger = FBSDKLoginManager()
+            faceBookLoginManger.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self)
+            { (result, error) in
+                
+                if let fbloginresult : FBSDKLoginManagerLoginResult = result
+                {
+                    if fbloginresult.isCancelled
+                    {
+                        print("cancelled")
+                        return
+                    }
+                    
+                    if (fbloginresult.grantedPermissions.contains("email")) && (fbloginresult.grantedPermissions != nil)
+                    {
+                        self.getFBUserData()
+                    }
+                    else
+                    {
+                        if let error = error
+                        {
+                            print("error is \(String(describing: error))")
+                        }
+                        
+                    }
+                }
+            }
+
+        }
+        else
+        {
+            self.appdelegate.alert(vc: self, message: "Unable to complete network request.  No Internet connection present.", title: "Error")
+        }
     }
     
 }

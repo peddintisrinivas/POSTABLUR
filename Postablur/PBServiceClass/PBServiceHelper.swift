@@ -89,7 +89,7 @@ class PBServiceHelper: NSObject
             guard data != nil else
             {
                 DispatchQueue.main.async(execute: { () -> Void in
-                    completion(nil, nil)
+                    completion(nil, error)
                 })
                 return
             }
