@@ -31,12 +31,58 @@ class PBSignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
         
         let registrationNib = UINib(nibName: NibNamed.RegistrationCell.rawValue, bundle: nil)
         self.signUpTableView.register(registrationNib, forCellReuseIdentifier: CellIdentifiers.RegistrationCellIdentifier.rawValue)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(PBSignUPVC.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PBSignUPVC.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tapRecogniser: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PBSignUPVC.tapGestureRecognized))
+        self.signUpTableView.addGestureRecognizer(tapRecogniser)
+
+    }
+    @objc internal func tapGestureRecognized()
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+           
+            self.signUpTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
     }
     
     
-    
+    @objc internal func keyboardWasShown(aNotification: NSNotification)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+
+        if let keyboardHeight = (aNotification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+            self.signUpTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
+            }
+        })
+
+    }
+    @objc internal func keyboardWillBeHidden(aNotification: NSNotification)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.signUpTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
  
 }
+
+extension PBSignUPVC : UITextFieldDelegate{
+    
+    // MARK: Textfield Delegate methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
 // MARK: Tableview Datasource and Delegate
 extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
 {
@@ -86,6 +132,10 @@ extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
         case 2:
             let cell : RegistrationCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.RegistrationCellIdentifier.rawValue, for: indexPath) as! RegistrationCell
             cell.registerDelegate = self
+            cell.userNameTF.delegate = self
+            cell.emailTF.delegate = self
+            cell.passwordTF.delegate = self
+            cell.reTypePasswordTF.delegate = self
             return cell
             
         default:

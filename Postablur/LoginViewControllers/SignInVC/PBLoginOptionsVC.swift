@@ -29,10 +29,56 @@ class PBLoginOptionsVC: UIViewController
         let socialNib = UINib(nibName: NibNamed.PBSocialLoginCell.rawValue, bundle: nil)
         self.loginTableView.register(socialNib, forCellReuseIdentifier: CellIdentifiers.SocialReuseIdentifier.rawValue)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(PBLoginOptionsVC.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PBLoginOptionsVC.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+        let tapRecogniser: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PBLoginOptionsVC.tapGestureRecognized))
+        self.loginTableView.addGestureRecognizer(tapRecogniser)
+
+}
+    @objc internal func tapGestureRecognized()
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
     }
     
-   
+    
+    @objc internal func keyboardWasShown(aNotification: NSNotification)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            if let keyboardHeight = (aNotification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+                self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
+            }
+        })
+        
+    }
+    @objc internal func keyboardWillBeHidden(aNotification: NSNotification)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    
 }
+extension PBLoginOptionsVC : UITextFieldDelegate{
+    
+    // MARK: Textfield Delegate methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
 // MARK: Tableview Datasource and Delegate
 extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
 {
@@ -77,6 +123,8 @@ extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
         case 1:
             let cell : PBEmailAndPasswrdCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.EmailAndPasswrdReuseIdentifier.rawValue, for: indexPath) as! PBEmailAndPasswrdCell
             cell.emailDelegate = self
+            cell.emailTextField.delegate = self
+            cell.passwordTextField.delegate = self
             return cell
             
         case 2:
