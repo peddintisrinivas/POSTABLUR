@@ -118,12 +118,51 @@ extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
     
     func uploadprofileImageToServer(selectedImage : UIImage)
     {
-         /*let urlString = Urls.uploadImageUrl
+         let urlString = Urls.uploadImageUrl
          let requestDict = ["UploadContent":"","Mediatype":"1"]
         
-         PBServiceHelper().uploadProfileImage(image: selectedImage, imageName: "")*/
+        
     }
 }
+
+// MARK: --  HEADER DELEGATES
+extension PBSignUPVC : PBHeaderCellDelegate
+{
+    func pbBackBtnDidTap()
+    {
+        _ = self.navigationController?.popViewController(animated: true)
+        
+    }
+}
+
+// MARK: --  ADDPROFILE DELEGATES
+extension PBSignUPVC : AddProfilePhotoCellDelegate
+{
+    func pbCaptureAPhotoBtnDidTap(capturedPhotoWidth: CGFloat,capturedPhotoHeight: CGFloat)
+    {
+        self.imageWidth = capturedPhotoWidth
+        self.imageHeight = capturedPhotoHeight
+        let pbImagePickerController = UIImagePickerController()
+        pbImagePickerController.delegate = self
+        pbImagePickerController.allowsEditing = true
+        pbImagePickerController.sourceType = UIImagePickerControllerSourceType.camera
+        present(pbImagePickerController, animated: true, completion: nil)
+    }
+    
+    func pbUploadAPhotoBtnDidTap(uploadPhotoWidth: CGFloat, uploadPhotoHeight: CGFloat)
+    {
+        self.imageWidth = uploadPhotoWidth
+        self.imageHeight = uploadPhotoHeight
+        let pbImagePickerController = UIImagePickerController()
+        pbImagePickerController.delegate = self
+        pbImagePickerController.allowsEditing = true
+        pbImagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(pbImagePickerController, animated: true, completion: nil)
+        
+    }
+}
+
+
 // MARK: -- REGISTRATION DELEGATES
 extension PBSignUPVC : RegistrationCellDelegate
 {
@@ -180,72 +219,64 @@ extension PBSignUPVC : RegistrationCellDelegate
         let urlString = String(format: "%@/UserRegistration", arguments: [Urls.mainUrl]);
         let requestDict = ["UserName":userNameTF.text!,"Email":emailTF.text!,"Password":passwordTF.text!,"DOB":"","DBAPin":"","Profileurl":"need to send",
             "ProfileAd":"","Accounttype":"1","PhoneNumber":"","CountryCode":"+91","Registrationtype":"1",
-            "DeviceId":"1234566","DeviceType":"1"] as [String : Any]
+            "DeviceId":"123456","DeviceType":"1"] as [String : Any]
         
         self.appdelegate.showActivityIndictor(titleString: "SignIn", subTitleString: "")
         
-        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (success : Bool?, responseObject : AnyObject?, errorString : String?) in
+        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (responseObject : AnyObject?, error : Error?) in
             
             self.appdelegate.hideActivityIndicator()
-            
-            guard errorString == nil else
+            if error == nil
             {
-                self.appdelegate.alert(vc: self, message: errorString!, title: "SignIn")
+                if responseObject != nil
+                {
+                    if let responseDict = responseObject as? [String : AnyObject]
+                    {
+                        if let resultArray = responseDict["Results"] as! [NSDictionary]!
+                        {
+                            let result = resultArray.first!
+                            
+                            let statusCode = result["StatusCode"] as! String
+                            let statusMessage = result["StatusMsg"] as! String
+                            
+                            if statusCode == "0"
+                            {
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                return
+                            }
+                            else
+                            {
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                return
+                            }
+                            
+                        }
+                    }
+                    if let responseStr = responseObject as? String
+                    {
+                        self.appdelegate.alert(vc: self, message: responseStr, title: "SignIn")
+                        return
+                    }
+                    
+                }
+                else
+                {
+                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "SignIn")
+                    return
+                }
+            }
+            else
+            {
+                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "SignIn")
                 return
             }
-            
-            guard success == true else
-            {
-                return
-            }
-            guard responseObject == nil else
-            {
-                print(responseObject)
-                
-                return
-            }
+           
         }
     }
         
 
     func pbloginBtnDidTap()
     {
-        
-    }
-}
-
-// MARK: --  ADDPROFILE DELEGATES
-extension PBSignUPVC : AddProfilePhotoCellDelegate
-{
-    func pbCaptureAPhotoBtnDidTap(capturedPhotoWidth: CGFloat,capturedPhotoHeight: CGFloat)
-    {
-        self.imageWidth = capturedPhotoWidth
-        self.imageHeight = capturedPhotoHeight
-        let pbImagePickerController = UIImagePickerController()
-        pbImagePickerController.delegate = self
-        pbImagePickerController.allowsEditing = true
-        pbImagePickerController.sourceType = UIImagePickerControllerSourceType.camera
-        present(pbImagePickerController, animated: true, completion: nil)
-    }
-    
-    func pbUploadAPhotoBtnDidTap(uploadPhotoWidth: CGFloat, uploadPhotoHeight: CGFloat)
-    {
-        self.imageWidth = uploadPhotoWidth
-        self.imageHeight = uploadPhotoHeight
-        let pbImagePickerController = UIImagePickerController()
-        pbImagePickerController.delegate = self
-        pbImagePickerController.allowsEditing = true
-        pbImagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        present(pbImagePickerController, animated: true, completion: nil)
-        
-    }
-}
-// MARK: --  HEADER DELEGATES
-extension PBSignUPVC : PBHeaderCellDelegate
-{
-    func pbBackBtnDidTap()
-    {
-        _ = self.navigationController?.popViewController(animated: true)
         
     }
 }

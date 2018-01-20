@@ -44,7 +44,6 @@ class AddProfilePhotoCell: UITableViewCell
         if let delegate = self.delegate
         {
             delegate.pbUploadAPhotoBtnDidTap(uploadPhotoWidth: uploadBtn.frame.width, uploadPhotoHeight: uploadBtn.frame.height)
-            
         }
     }
     override func setSelected(_ selected: Bool, animated: Bool)
