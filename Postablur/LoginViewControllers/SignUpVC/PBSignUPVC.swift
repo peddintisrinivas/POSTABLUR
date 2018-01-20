@@ -296,7 +296,10 @@ extension PBSignUPVC : RegistrationCellDelegate
                             
                             if statusCode == "0"
                             {
-                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignUp")
+                                let qrCodeScannerVC = QRCodeScannerVC()
+                                self.navigationController?.pushViewController(qrCodeScannerVC, animated: true)
+
+                                //self.appdelegate.alert(vc: self, message: statusMessage, title: "SignUp")
                                 return
                             }
                             else

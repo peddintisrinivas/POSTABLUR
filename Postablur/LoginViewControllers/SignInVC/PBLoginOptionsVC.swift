@@ -114,7 +114,10 @@ class PBLoginOptionsVC: UIViewController
                                             
                                             if statusCode == "0"
                                             {
-                                                self.appdelegate.alert(vc: self, message: statusMessage, title: "Facebook SignIn")
+                                                let qrCodeScannerVC = QRCodeScannerVC()
+                                                self.navigationController?.pushViewController(qrCodeScannerVC, animated: true)
+
+                                                //self.appdelegate.alert(vc: self, message: statusMessage, title: "Facebook SignIn")
                                                 return
                                             }
                                             else
@@ -175,7 +178,10 @@ class PBLoginOptionsVC: UIViewController
                             
                             if statusCode == "0"
                             {
-                                self.appdelegate.alert(vc: self, message: statusMessage, title: "Twitter SignIn")
+                                let qrCodeScannerVC = QRCodeScannerVC()
+                                self.navigationController?.pushViewController(qrCodeScannerVC, animated: true)
+
+                                //self.appdelegate.alert(vc: self, message: statusMessage, title: "Twitter SignIn")
                                 return
                             }
                             else
