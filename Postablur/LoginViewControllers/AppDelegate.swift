@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -19,20 +20,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     var hud : MBProgressHUD = MBProgressHUD()
     
+    var registrationType = 1
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         self.loadLogin()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        Twitter.sharedInstance().start(withConsumerKey: "ifeAkthu6TFg1kTLkapF8bAAW", consumerSecret:"jFU9sRnAecICwaU9wjLf25EV9C5PFca5AiSh2UG9rOLc1I3KGt")
+
         return true
     }
-
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool
     {
-        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-        // Add any custom logic here.
+        var handled:Bool!
+        
+        if(registrationType == 2)
+        {
+            handled = Twitter.sharedInstance().application(app, open: url, options: options)
+        }
+        else if (registrationType == 3)
+        {
+            handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url as URL!, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            
+            //handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        }
         return handled
+        
     }
     
     func loadLogin()
