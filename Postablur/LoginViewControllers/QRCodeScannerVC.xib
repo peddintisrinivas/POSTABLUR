@@ -18,6 +18,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeScannerVC" customModule="Postablur" customModuleProvider="target">
             <connections>
+                <outlet property="nameLbl" destination="Wmj-mo-w4i" id="T2o-Bt-OaL"/>
+                <outlet property="qrCodeLbl" destination="ZvP-Jm-on6" id="WKJ-uI-3ao"/>
+                <outlet property="scannerImage" destination="OMq-u4-mo3" id="EJM-wQ-Qga"/>
+                <outlet property="scansCountLbl" destination="blf-BX-l7G" id="q8K-be-C62"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -54,7 +58,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@concurtakiss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmj-mo-w4i">
-                            <rect key="frame" x="0.0" y="119" width="414" height="26"/>
+                            <rect key="frame" x="0.0" y="128" width="414" height="26"/>
                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
                             <color key="textColor" red="0.0" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -72,11 +76,11 @@
                         <constraint firstItem="ZcH-zK-lIB" firstAttribute="top" secondItem="JVu-bd-IDE" secondAttribute="top" constant="8" id="fxS-NX-ceO"/>
                         <constraint firstAttribute="trailing" secondItem="ZvP-Jm-on6" secondAttribute="trailing" id="mX0-7p-fuF"/>
                         <constraint firstItem="ZvP-Jm-on6" firstAttribute="leading" secondItem="JVu-bd-IDE" secondAttribute="leading" id="tln-K0-38A"/>
-                        <constraint firstItem="Wmj-mo-w4i" firstAttribute="top" secondItem="ZvP-Jm-on6" secondAttribute="bottom" constant="-9" id="vC9-By-PxC"/>
+                        <constraint firstItem="Wmj-mo-w4i" firstAttribute="top" secondItem="ZvP-Jm-on6" secondAttribute="bottom" id="vC9-By-PxC"/>
                         <constraint firstItem="Wmj-mo-w4i" firstAttribute="leading" secondItem="JVu-bd-IDE" secondAttribute="leading" id="zRJ-4A-EeH"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrCode" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-u4-mo3">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrCode" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-u4-mo3">
                     <rect key="frame" x="37" y="265" width="341" height="341"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="777 SCANS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blf-BX-l7G">
