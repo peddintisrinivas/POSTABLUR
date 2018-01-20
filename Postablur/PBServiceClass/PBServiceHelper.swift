@@ -9,16 +9,34 @@
 import UIKit
 import Alamofire
 
+enum URLRequestError: Error
+{
+    case noAuthToken
+    case networkUnavailable
+    
+    var localizedDescription: String
+    {
+        switch self
+        {
+        case .noAuthToken:
+            return "Unable to complete network request.  User Auth Token not present."
+        case .networkUnavailable:
+            return "Unable to complete network request.  No Internet connection present."
+        }
+    }
+}
+
 class PBServiceHelper: NSObject
 {
-    typealias PBPostCompletionHandler = (Bool?, AnyObject?, String?) -> Swift.Void
-    
-    //typealias PBGetCompletionHandler = (Bool?, AnyObject?, String?) -> Swift.Void
-    
+    typealias PBPostCompletionHandler = (AnyObject?, Error?) -> Swift.Void
+
     var appdelegate : AppDelegate!
     
+    
+    
+    
     // MARK: Upload Profile Image
-    func uploadProfileImage(image: UIImage, imageName: String)
+    func uploadProfileImage(url: String, image: UIImage, imageName: String)
     {
         self.appdelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -29,7 +47,7 @@ class PBServiceHelper: NSObject
             })
             return
         }
-        let urlString = String(format: Urls.uploadImageUrl)
+        let urlString = String(format: url)
         
         let request = NSMutableURLRequest(url: NSURL(string:urlString)! as URL)
         
@@ -39,11 +57,6 @@ class PBServiceHelper: NSObject
         
         request.allHTTPHeaderFields = ["content-type":"multipart/form-data",Urls.AccessToken: Urls.AccessTokenValue]
         
-        //request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
-
-        
-        
-     
     }
     
     
@@ -53,8 +66,10 @@ class PBServiceHelper: NSObject
         
         if appdelegate.isNetworkReachable() == false
         {
+            let error: Error = URLRequestError.networkUnavailable
+            
             DispatchQueue.main.async(execute: { () -> Void in
-                completion(false, nil, "No Internet Connection")
+                completion(nil, error)
             })
             return
         }
@@ -70,10 +85,11 @@ class PBServiceHelper: NSObject
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
             guard data != nil else
             {
                 DispatchQueue.main.async(execute: { () -> Void in
-                    completion(false, nil, "Something went wrong")
+                    completion(nil, nil)
                 })
                 return
             }
@@ -84,7 +100,7 @@ class PBServiceHelper: NSObject
                 {
                     DispatchQueue.main.async
                     {
-                        completion(true, json, nil)
+                        completion(json, nil)
                     }
                 }
                 else
@@ -92,7 +108,7 @@ class PBServiceHelper: NSObject
                     let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                     //print("Error could not parse JSON: \(jsonStr)")
                     //failed
-                    completion(false,jsonStr, nil)
+                    completion(jsonStr, nil)
                     
                 }
             }
@@ -100,7 +116,7 @@ class PBServiceHelper: NSObject
             {
                 let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 ///print("Error could not parse JSON: '\(jsonStr)'")
-                completion(false, jsonStr, nil)
+                completion(jsonStr, nil)
                 
             }
         }

@@ -127,26 +127,53 @@ extension PBLoginOptionsVC : PBEmailAndPasswrdCellDelegate
         
         self.appdelegate.showActivityIndictor(titleString: "SignIn", subTitleString: "")
         
-        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (success : Bool?, responseObject : AnyObject?, errorString : String?) in
+        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (responseObject : AnyObject?, error : Error?) in
             
             self.appdelegate.hideActivityIndicator()
             
-            guard errorString == nil else
+            if error == nil
             {
-                self.appdelegate.alert(vc: self, message: errorString!, title: "SignIn")
-                return
+                if responseObject != nil
+                {
+                    if let responseDict = responseObject as? [String : AnyObject]
+                    {
+                        if let resultArray = responseDict["Results"] as! [NSDictionary]!
+                        {
+                            let result = resultArray.first!
+                            
+                            let statusCode = result["StatusCode"] as! String
+                            let statusMessage = result["StatusMsg"] as! String
+                            
+                            if statusCode == "0"
+                            {
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                return
+                            }
+                            else
+                            {
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                return
+                            }
+                            
+                        }
+                    }
+                    if let responseStr = responseObject as? String
+                    {
+                        self.appdelegate.alert(vc: self, message: responseStr, title: "SignIn")
+                        return
+                    }
+
+                }
+                else
+                {
+                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "SignIn")
+                    return
+                }
             }
-            
-            guard success == true else
+            else
             {
+                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "SignIn")
                 return
-            }
-            guard responseObject == nil else
-            {
-               print(responseObject)
-               let signUpVC = PBSignUPVC()
-               self.navigationController?.pushViewController(signUpVC, animated: true);
-               return
             }
         }
     }
