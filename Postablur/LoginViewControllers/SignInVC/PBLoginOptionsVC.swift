@@ -37,13 +37,39 @@ class PBLoginOptionsVC: UIViewController
         let tapRecogniser: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PBLoginOptionsVC.tapGestureRecognized))
         self.loginTableView.addGestureRecognizer(tapRecogniser)
 
-}
+    }
+    
     @objc internal func tapGestureRecognized()
     {
         UIView.animate(withDuration: 0.2, animations: {
             
             self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         })
+    }
+    
+    @objc internal func keyboardWasShown(aNotification: NSNotification)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            if let keyboardHeight = (aNotification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+            {
+                self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
+            }
+        })
+        
+    }
+    
+    @objc internal func keyboardWillBeHidden(aNotification: NSNotification)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func getFBUserData()
@@ -121,7 +147,8 @@ class PBLoginOptionsVC: UIViewController
         }
     }
 }
-extension PBLoginOptionsVC : UITextFieldDelegate{
+extension PBLoginOptionsVC : UITextFieldDelegate
+{
     
     // MARK: Textfield Delegate methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
