@@ -33,6 +33,7 @@ class PBEmailAndPasswrdCell: UITableViewCell
         emailTextField.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.Email.rawValue)
         
         passwordTextField.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.Password.rawValue)
+       
     }
 
     @IBAction func loginBtnAction(_ sender: UIButton)
@@ -57,5 +58,6 @@ class PBEmailAndPasswrdCell: UITableViewCell
 
         // Configure the view for the selected state
     }
+   
     
 }

@@ -31,6 +31,19 @@ class PBLoginOptionsVC: UIViewController
         let socialNib = UINib(nibName: NibNamed.PBSocialLoginCell.rawValue, bundle: nil)
         self.loginTableView.register(socialNib, forCellReuseIdentifier: CellIdentifiers.SocialReuseIdentifier.rawValue)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(PBLoginOptionsVC.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PBLoginOptionsVC.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+        let tapRecogniser: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PBLoginOptionsVC.tapGestureRecognized))
+        self.loginTableView.addGestureRecognizer(tapRecogniser)
+
+}
+    @objc internal func tapGestureRecognized()
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.loginTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
     }
     
     func getFBUserData()
@@ -108,6 +121,17 @@ class PBLoginOptionsVC: UIViewController
         }
     }
 }
+extension PBLoginOptionsVC : UITextFieldDelegate{
+    
+    // MARK: Textfield Delegate methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
 // MARK: Tableview Datasource and Delegate
 extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
 {
@@ -153,6 +177,8 @@ extension PBLoginOptionsVC : UITableViewDataSource, UITableViewDelegate
         case 1:
             let cell : PBEmailAndPasswrdCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.EmailAndPasswrdReuseIdentifier.rawValue, for: indexPath) as! PBEmailAndPasswrdCell
             cell.emailDelegate = self
+            cell.emailTextField.delegate = self
+            cell.passwordTextField.delegate = self
             return cell
             
         case 2:
