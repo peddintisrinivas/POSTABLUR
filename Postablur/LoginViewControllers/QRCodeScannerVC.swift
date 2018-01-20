@@ -16,7 +16,10 @@ class QRCodeScannerVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapRecogniser: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(QRCodeScannerVC.tapGestureRecognized))
+        self.scannerImage.addGestureRecognizer(tapRecogniser)
 
+        
     }
 
     @objc internal func tapGestureRecognized()
