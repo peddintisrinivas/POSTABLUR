@@ -17,19 +17,6 @@ class QRCodeScannerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let fontSmallSize = ((UIScreen.main.bounds.size.width) / CGFloat(414.0)) * 18
-        let roundedSmallfontSize = floor(fontSmallSize)
-        
-        let fontBoldSize = ((UIScreen.main.bounds.size.width) / CGFloat(414.0)) * 48
-        let roundedBoldfontSize = floor(fontBoldSize)
-        
-        self.qrCodeLbl.font = self.qrCodeLbl.font.withSize(roundedBoldfontSize)
-        self.nameLbl.font = self.nameLbl.font.withSize(roundedSmallfontSize)
-        self.scansCountLbl.font = self.scansCountLbl.font.withSize(roundedSmallfontSize)
-
-        let tapRecogniser: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(QRCodeScannerVC.tapGestureRecognized))
-        self.scannerImage.addGestureRecognizer(tapRecogniser)
-
     }
 
     @objc internal func tapGestureRecognized()
@@ -42,7 +29,6 @@ class QRCodeScannerVC: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
    

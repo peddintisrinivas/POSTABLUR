@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import TwitterKit
 
 class PBLoginOptionsVC: UIViewController
 {
@@ -146,7 +147,66 @@ class PBLoginOptionsVC: UIViewController
             })
         }
     }
+    
+    
+    func getTwitterUserData(username: String, email: String)
+    {
+        let urlString = String(format: "%@/UserRegistration", arguments: [Urls.mainUrl]);
+        
+        let requestDict = ["UserName": username,"Email": email,"Password": "","DOB":"","DBAPin":"","Profileurl": "","ProfileAd":"","Accounttype":"1","PhoneNumber":"","CountryCode":"+91","Registrationtype":"2","DeviceId":"123456","DeviceType":"1"] as [String : Any]
+        
+        self.appdelegate.showActivityIndictor(titleString: "Twitter SignIn", subTitleString: "")
+        
+        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (responseObject : AnyObject?, error : Error?) in
+            
+            self.appdelegate.hideActivityIndicator()
+            if error == nil
+            {
+                if responseObject != nil
+                {
+                    if let responseDict = responseObject as? [String : AnyObject]
+                    {
+                        if let resultArray = responseDict["Results"] as! [NSDictionary]!
+                        {
+                            let result = resultArray.first!
+                            
+                            let statusCode = result["StatusCode"] as! String
+                            let statusMessage = result["StatusMsg"] as! String
+                            
+                            if statusCode == "0"
+                            {
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "Twitter SignIn")
+                                return
+                            }
+                            else
+                            {
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "Twitter SignIn")
+                                return
+                            }
+                        }
+                    }
+                    if let responseStr = responseObject as? String
+                    {
+                        self.appdelegate.alert(vc: self, message: responseStr, title: "Twitter SignIn")
+                        return
+                    }
+                    
+                }
+                else
+                {
+                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "Twitter SignIn")
+                    return
+                }
+            }
+            else
+            {
+                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "Twitter SignIn")
+                return
+            }
+        }
+    }
 }
+
 extension PBLoginOptionsVC : UITextFieldDelegate
 {
     
@@ -329,10 +389,49 @@ extension PBLoginOptionsVC : PBSocialLoginCellDelegate
     }
     func pbTwitterBtnDidTap()
     {
-        
+        self.appdelegate.registrationType = 2
+        if appdelegate.isNetworkReachable() == true
+        {
+            Twitter.sharedInstance().logIn(completion: { (session, error) in
+              if (session != nil)
+              {
+                let username = session?.userName
+                print (username!)
+                
+                let client = TWTRAPIClient.withCurrentUser()
+                
+                client.requestEmail { email, error in
+                    
+                    if (email != nil)
+                    {
+                        print(email!)
+                        
+                        self.getTwitterUserData(username: username!, email: email!)
+                    }
+                    else
+                    {
+                        print(error!)
+                    }
+                }
+                
+              }
+              else
+              {
+                print("error: \(String(describing: error?.localizedDescription))");
+              }
+           })
+        }
+        else
+        {
+            self.appdelegate.alert(vc: self, message: "Unable to complete network request.  No Internet connection present.", title: "Error")
+        }
     }
+    
+    
     func pbfaceBookBtnDidTap()
     {
+        self.appdelegate.registrationType = 3
+        
         if appdelegate.isNetworkReachable() == true
         {
             if (FBSDKAccessToken.current() != nil)

@@ -6,11 +6,12 @@ target 'Postablur' do
   use_frameworks!
   pod 'Alamofire'
   pod 'FBSDKLoginKit'
+  pod 'TwitterKit'
 
 
   # Pods for Postablur
   pod 'Alamofire'
   pod 'FBSDKLoginKit'
-
+  pod 'TwitterKit'
 
 end

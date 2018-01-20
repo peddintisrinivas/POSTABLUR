@@ -39,6 +39,7 @@ class PBSignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
         self.signUpTableView.addGestureRecognizer(tapRecogniser)
 
     }
+    
     @objc internal func tapGestureRecognized()
     {
         UIView.animate(withDuration: 0.2, animations: {
@@ -58,6 +59,7 @@ class PBSignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
         })
 
     }
+    
     @objc internal func keyboardWillBeHidden(aNotification: NSNotification)
     {
         UIView.animate(withDuration: 0.2, animations: {
@@ -65,14 +67,39 @@ class PBSignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
             self.signUpTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         })
     }
-    deinit {
+    
+    deinit
+    {
         NotificationCenter.default.removeObserver(self)
     }
 
+    // MARK: Image picker delegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any])
+    {
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            let resizedImage = chosenImage.resizeImage(image: chosenImage, newWidth: self.imageWidth)!
+            self.uploadprofileImageToServer(selectedImage: resizedImage)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadprofileImageToServer(selectedImage : UIImage)
+    {
+        /*let urlString = Urls.uploadImageUrl
+        let requestDict = ["UploadContent":"","Mediatype":"1"]*/
+    }
  
 }
 
-extension PBSignUPVC : UITextFieldDelegate{
+extension PBSignUPVC : UITextFieldDelegate
+{
     
     // MARK: Textfield Delegate methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -102,7 +129,8 @@ extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
         {
             return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 178.0)
         }
-        else{
+        else
+        {
             return  Constants.calculateDynamicTableviewCellHeight(cellHeight: 350.0)
         }
     }
@@ -149,30 +177,7 @@ extension PBSignUPVC : UITableViewDataSource, UITableViewDelegate
         
     }
     
-    // MARK: Image picker delegate
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-    {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any])
-    {
-        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
-            let resizedImage = chosenImage.resizeImage(image: chosenImage, newWidth: self.imageWidth)!
-            self.uploadprofileImageToServer(selectedImage: resizedImage)
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func uploadprofileImageToServer(selectedImage : UIImage)
-    {
-         let urlString = Urls.uploadImageUrl
-         let requestDict = ["UploadContent":"","Mediatype":"1"]
-        
-        
-    }
+   
 }
 
 // MARK: --  HEADER DELEGATES
@@ -267,11 +272,11 @@ extension PBSignUPVC : RegistrationCellDelegate
         }
             
         let urlString = String(format: "%@/UserRegistration", arguments: [Urls.mainUrl]);
-        let requestDict = ["UserName":userNameTF.text!,"Email":emailTF.text!,"Password":passwordTF.text!,"DOB":"","DBAPin":"","Profileurl":"need to send",
+        let requestDict = ["UserName":userNameTF.text!,"Email":emailTF.text!,"Password":passwordTF.text!,"DOB":"","DBAPin":"","Profileurl":"",
             "ProfileAd":"","Accounttype":"1","PhoneNumber":"","CountryCode":"+91","Registrationtype":"1",
             "DeviceId":"123456","DeviceType":"1"] as [String : Any]
         
-        self.appdelegate.showActivityIndictor(titleString: "SignIn", subTitleString: "")
+        self.appdelegate.showActivityIndictor(titleString: "SignUp", subTitleString: "")
         
         PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (responseObject : AnyObject?, error : Error?) in
             
@@ -291,12 +296,12 @@ extension PBSignUPVC : RegistrationCellDelegate
                             
                             if statusCode == "0"
                             {
-                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignUp")
                                 return
                             }
                             else
                             {
-                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignIn")
+                                self.appdelegate.alert(vc: self, message: statusMessage, title: "SignUp")
                                 return
                             }
                             
@@ -304,20 +309,20 @@ extension PBSignUPVC : RegistrationCellDelegate
                     }
                     if let responseStr = responseObject as? String
                     {
-                        self.appdelegate.alert(vc: self, message: responseStr, title: "SignIn")
+                        self.appdelegate.alert(vc: self, message: responseStr, title: "SignUp")
                         return
                     }
                     
                 }
                 else
                 {
-                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "SignIn")
+                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "SignUp")
                     return
                 }
             }
             else
             {
-                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "SignIn")
+                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "SignUp")
                 return
             }
            

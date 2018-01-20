@@ -15,7 +15,6 @@
     <string>2247750978784991</string>
     <key>FacebookDisplayName</key>
     <string>Postablur</string>
-    
     <key>LSApplicationQueriesSchemes</key>
     <array>
         <string>fbapi</string>
@@ -24,6 +23,21 @@
         <string>fbshareextension</string>
     </array>
     
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>twitterkit-ifeAkthu6TFg1kTLkapF8bAAW</string>
+            </array>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>twitter</string>
+        <string>twitterauth</string>
+    </array>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
