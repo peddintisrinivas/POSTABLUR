@@ -28,6 +28,9 @@ enum CellIdentifiers: String{
     case PBHeaderCellIdentifier = "PBHeaderCellID"
     case PBFreeAccountCellIdentifier = "PBFreeAccountCellID"
     case PBPaidAccoutCellIdentifier = "PBPaidAccoutCellID"
+    case PBLikeLimitCellIdentifier = "PBLikeLimitCellID"
+    case PBShareLimitCellIdentifier = "PBShareLimitCellID"
+    case PBDollarLimitCellIdentifier = "PBDollarLimitCellID"
 
 }
 

@@ -9,25 +9,28 @@
 import UIKit
 
 class QRCodeScannerVC: UIViewController {
+    @IBOutlet weak var qrCodeLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var scansCountLbl: UILabel!
+    @IBOutlet weak var scannerImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+    @objc internal func tapGestureRecognized()
+    {
+
+        let revealSettingsVC = RevealSettingsVC()
+        self.navigationController?.pushViewController(revealSettingsVC, animated: true)
+
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

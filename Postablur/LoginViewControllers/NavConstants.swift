@@ -20,5 +20,8 @@ enum NibNamed: String
     case PBHeaderCell
     case PBFreeAccountCell
     case PBPaidAccoutCell
+    case PBLikeLimitCell
+    case PBShareLimitCell
+    case PBDollarLimitCell
 
 }
