@@ -34,15 +34,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhiteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yvu-4b-I9d">
-                            <rect key="frame" x="111" y="36" width="209" height="53"/>
+                            <rect key="frame" x="111" y="32.5" width="209" height="58"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="Yvu-4b-I9d" firstAttribute="centerY" secondItem="POn-Wh-d5j" secondAttribute="centerY" constant="10" id="2i5-Jr-hfX"/>
                         <constraint firstItem="Yvu-4b-I9d" firstAttribute="centerX" secondItem="POn-Wh-d5j" secondAttribute="centerX" constant="8" id="IDa-yG-5GR"/>
-                        <constraint firstItem="Yvu-4b-I9d" firstAttribute="height" secondItem="POn-Wh-d5j" secondAttribute="height" multiplier="58:113" id="nOZ-bW-FdH"/>
-                        <constraint firstItem="Yvu-4b-I9d" firstAttribute="top" secondItem="POn-Wh-d5j" secondAttribute="top" constant="36" id="r9g-xO-mFb"/>
-                        <constraint firstItem="Yvu-4b-I9d" firstAttribute="width" secondItem="POn-Wh-d5j" secondAttribute="width" multiplier="209:414" id="yJC-cJ-BmJ"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVu-bd-IDE">

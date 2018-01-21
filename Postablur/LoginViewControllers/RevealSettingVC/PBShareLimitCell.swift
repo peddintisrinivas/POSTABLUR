@@ -20,11 +20,20 @@ class PBShareLimitCell: UITableViewCell {
     @IBOutlet weak var fiveShareButton : UIButton!
     @IBOutlet weak var tenShareButton : UIButton!
     var shareLimitDelegate : PBShareLimitCellDelegate? = nil
+    @IBOutlet weak var shareLabel : UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
+       
+        let labelfontSize = ((UIScreen.main.bounds.size.width) / CGFloat(414.0)) * 16
+        let roundedBoldfontSize = floor(labelfontSize)
+        self.shareLabel.font = self.shareLabel.font.withSize(roundedBoldfontSize)
+        
+        let buttonfonSize = ((UIScreen.main.bounds.size.width) / CGFloat(414.0)) * 20
+        let roundedButtonfontSize = floor(buttonfonSize)
+        self.oneShareButton.titleLabel?.font = UIFont(name: FontName.AvenirBlack.rawValue, size: roundedButtonfontSize)
+        self.fiveShareButton.titleLabel?.font = UIFont(name: FontName.AvenirBlack.rawValue, size: roundedButtonfontSize)
+        self.tenShareButton.titleLabel?.font = UIFont(name: FontName.AvenirBlack.rawValue, size: roundedButtonfontSize)    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

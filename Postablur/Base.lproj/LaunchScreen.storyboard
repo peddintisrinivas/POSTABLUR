@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,31 +23,34 @@
                                 <rect key="frame" x="0.0" y="257" width="414" height="242"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitePostablur" translatesAutoresizingMaskIntoConstraints="NO" id="n3w-25-NQH">
-                                        <rect key="frame" x="162.5" y="0.0" width="89" height="86"/>
+                                        <rect key="frame" x="163" y="0.0" width="89" height="86"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="n3w-25-NQH" secondAttribute="height" multiplier="89:86" id="t0U-gb-eqz"/>
+                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postablur" translatesAutoresizingMaskIntoConstraints="NO" id="bai-XA-diX">
                                         <rect key="frame" x="77" y="85" width="260" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bai-XA-diX" secondAttribute="height" multiplier="65:18" id="YVA-aV-Yg3"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="bai-XA-diX" firstAttribute="height" secondItem="SZr-Zm-zd0" secondAttribute="height" multiplier="72:242" id="5gl-FL-5lf"/>
-                                    <constraint firstItem="n3w-25-NQH" firstAttribute="width" secondItem="SZr-Zm-zd0" secondAttribute="width" multiplier="89:414" id="HHC-CA-egA"/>
-                                    <constraint firstItem="n3w-25-NQH" firstAttribute="height" secondItem="SZr-Zm-zd0" secondAttribute="height" multiplier="86:242" id="YMp-hM-Iad"/>
-                                    <constraint firstItem="n3w-25-NQH" firstAttribute="top" secondItem="SZr-Zm-zd0" secondAttribute="top" id="efm-bq-Re2"/>
-                                    <constraint firstItem="bai-XA-diX" firstAttribute="centerY" secondItem="SZr-Zm-zd0" secondAttribute="centerY" id="ljC-JC-ujC"/>
-                                    <constraint firstItem="n3w-25-NQH" firstAttribute="centerX" secondItem="SZr-Zm-zd0" secondAttribute="centerX" id="nXo-me-uE2"/>
-                                    <constraint firstItem="bai-XA-diX" firstAttribute="centerX" secondItem="SZr-Zm-zd0" secondAttribute="centerX" id="rON-c4-oD0"/>
+                                    <constraint firstItem="n3w-25-NQH" firstAttribute="top" secondItem="SZr-Zm-zd0" secondAttribute="top" id="2S6-nn-y0W"/>
+                                    <constraint firstItem="n3w-25-NQH" firstAttribute="centerX" secondItem="SZr-Zm-zd0" secondAttribute="centerX" id="Ka2-0k-L9h"/>
+                                    <constraint firstItem="bai-XA-diX" firstAttribute="centerX" secondItem="SZr-Zm-zd0" secondAttribute="centerX" id="dfG-4a-xev"/>
+                                    <constraint firstItem="bai-XA-diX" firstAttribute="centerY" secondItem="SZr-Zm-zd0" secondAttribute="centerY" id="hv6-Jl-VTW"/>
+                                    <constraint firstItem="bai-XA-diX" firstAttribute="top" secondItem="n3w-25-NQH" secondAttribute="bottom" constant="-1" id="tyJ-3T-PbV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8u3-3J-5Yo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SZr-Zm-zd0" secondAttribute="trailing" id="NQc-Xs-W6z"/>
-                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QH7-An-Kcz"/>
-                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gmV-1k-Gzn"/>
-                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="242:736" id="gyo-Ai-5n1"/>
+                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4Ce-ry-UM2"/>
+                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DCN-9R-eqG"/>
+                            <constraint firstItem="SZr-Zm-zd0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="EbO-2w-Uzf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SZr-Zm-zd0" secondAttribute="trailing" id="kFt-gF-zTN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

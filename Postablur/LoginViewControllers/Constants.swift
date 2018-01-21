@@ -34,6 +34,11 @@ enum CellIdentifiers: String{
 
 }
 
+enum FontName : String {
+    
+    case AvenirBlack = "Avenir-Black"
+}
+
 class Constants: NSObject {
 
     static let placedHolderTextFieldColor : UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
