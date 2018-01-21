@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,20 +29,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="76.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M39-6N-lQT">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M39-6N-lQT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SET A LIKE LIMIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JO-Ed-kFC">
-                                <rect key="frame" x="39" y="26" width="154" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET A LIKE LIMIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JO-Ed-kFC">
+                                <rect key="frame" x="0.0" y="26" width="180" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="sBJ-0S-UEQ"/>
+                                    <constraint firstAttribute="height" constant="25" id="zpo-e5-7Ak"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhj-OY-AeO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhj-OY-AeO">
                                 <rect key="frame" x="204" y="15" width="46" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="1">
@@ -51,9 +53,8 @@
                                     <action selector="oneLikeBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S87-No-sC3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUq-Yb-QrH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUq-Yb-QrH">
                                 <rect key="frame" x="275" y="15" width="46" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="5">
@@ -63,9 +64,8 @@
                                     <action selector="fiveLikeBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="chM-uf-bco"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFE-c0-aNe">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFE-c0-aNe">
                                 <rect key="frame" x="347" y="15" width="46" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="10">
@@ -75,18 +75,46 @@
                                     <action selector="tenLikeBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="alW-A6-A1b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="THE AMOUNT OF LIKES NEEDED TO REVEAL YOUR POST." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-4u-wGj">
-                                <rect key="frame" x="130" y="67" width="263" height="11"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE AMOUNT OF LIKES NEEDED TO REVEAL YOUR POST." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-4u-wGj">
+                                <rect key="frame" x="130" y="67" width="263" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="263" id="Dcf-cH-gnG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8JO-Ed-kFC" firstAttribute="centerY" secondItem="M39-6N-lQT" secondAttribute="centerY" id="092-jx-Ugm"/>
+                            <constraint firstItem="JUq-Yb-QrH" firstAttribute="centerY" secondItem="M39-6N-lQT" secondAttribute="centerY" id="0BI-Rs-sTT"/>
+                            <constraint firstItem="Xhj-OY-AeO" firstAttribute="height" secondItem="M39-6N-lQT" secondAttribute="height" multiplier="47:77" id="88a-Vo-bva"/>
+                            <constraint firstItem="pFE-c0-aNe" firstAttribute="height" secondItem="JUq-Yb-QrH" secondAttribute="height" id="C1J-XK-aUQ"/>
+                            <constraint firstItem="8JO-Ed-kFC" firstAttribute="height" secondItem="M39-6N-lQT" secondAttribute="height" multiplier="25:77" id="C1z-j5-AjH"/>
+                            <constraint firstItem="JUq-Yb-QrH" firstAttribute="height" secondItem="Xhj-OY-AeO" secondAttribute="height" id="M4C-qw-Eq1"/>
+                            <constraint firstItem="2VG-4u-wGj" firstAttribute="trailing" secondItem="pFE-c0-aNe" secondAttribute="trailing" id="TxL-Dr-e8J"/>
+                            <constraint firstItem="pFE-c0-aNe" firstAttribute="centerY" secondItem="M39-6N-lQT" secondAttribute="centerY" id="bDr-q5-9R3"/>
+                            <constraint firstItem="Xhj-OY-AeO" firstAttribute="width" secondItem="M39-6N-lQT" secondAttribute="width" multiplier="46:414" id="bgH-zF-lQa"/>
+                            <constraint firstAttribute="trailing" secondItem="pFE-c0-aNe" secondAttribute="trailing" constant="21" id="cGi-ro-zEf"/>
+                            <constraint firstItem="2VG-4u-wGj" firstAttribute="top" secondItem="JUq-Yb-QrH" secondAttribute="bottom" constant="5" id="ch7-Uf-C2o"/>
+                            <constraint firstItem="JUq-Yb-QrH" firstAttribute="width" secondItem="Xhj-OY-AeO" secondAttribute="width" id="e4E-N4-U0j"/>
+                            <constraint firstItem="pFE-c0-aNe" firstAttribute="leading" secondItem="JUq-Yb-QrH" secondAttribute="trailing" constant="26" id="gWz-a3-lPC"/>
+                            <constraint firstItem="Xhj-OY-AeO" firstAttribute="leading" secondItem="8JO-Ed-kFC" secondAttribute="trailing" constant="24" id="kvy-xp-Vez"/>
+                            <constraint firstItem="pFE-c0-aNe" firstAttribute="width" secondItem="JUq-Yb-QrH" secondAttribute="width" id="lQc-ZW-Pvs"/>
+                            <constraint firstItem="JUq-Yb-QrH" firstAttribute="leading" secondItem="Xhj-OY-AeO" secondAttribute="trailing" constant="25" id="np4-EP-y4J"/>
+                            <constraint firstAttribute="bottom" secondItem="2VG-4u-wGj" secondAttribute="bottom" id="q3C-m8-01J"/>
+                            <constraint firstItem="Xhj-OY-AeO" firstAttribute="centerY" secondItem="M39-6N-lQT" secondAttribute="centerY" id="xCj-4A-hZs"/>
+                        </constraints>
                     </view>
                 </subviews>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="M39-6N-lQT" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="Kvb-wE-pXJ"/>
+                <constraint firstItem="M39-6N-lQT" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="fDN-ZY-Lhp"/>
+                <constraint firstItem="M39-6N-lQT" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" id="hej-Lg-ERm"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="M39-6N-lQT" secondAttribute="trailing" id="msM-rt-c4s"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="fiveLikeButton" destination="JUq-Yb-QrH" id="7OW-Eq-XGQ"/>

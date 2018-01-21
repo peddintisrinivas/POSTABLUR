@@ -30,6 +30,7 @@ class PBEmailAndPasswrdCell: UITableViewCell
     override func awakeFromNib()
     {
         super.awakeFromNib()
+       
         emailTextField.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.Email.rawValue)
         
         passwordTextField.attributedPlaceholder = Constants.textFieldPalceHolderColor(placeHolderText: PlaceHolderText.Password.rawValue)
