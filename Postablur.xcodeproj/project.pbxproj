@@ -20,6 +20,8 @@
 		B00D05D320137BBD0031CE82 /* PBShareLimitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00D05D120137BBD0031CE82 /* PBShareLimitCell.xib */; };
 		B00D05D620137BE20031CE82 /* PBDollarLimitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D05D420137BE20031CE82 /* PBDollarLimitCell.swift */; };
 		B00D05D720137BE20031CE82 /* PBDollarLimitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00D05D520137BE20031CE82 /* PBDollarLimitCell.xib */; };
+		B0983B7B20148AD7003AB028 /* PostDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0983B7920148AD7003AB028 /* PostDescriptionVC.swift */; };
+		B0983B7C20148AD7003AB028 /* PostDescriptionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0983B7A20148AD7003AB028 /* PostDescriptionVC.xib */; };
 		B0A0204B2011DEE600D3837B /* PBAccountTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A020452011DEE600D3837B /* PBAccountTypeVC.swift */; };
 		B0A0204C2011DEE600D3837B /* PBAccountTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A020462011DEE600D3837B /* PBAccountTypeVC.xib */; };
 		B0A0204D2011DEE600D3837B /* PBFreeAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A020472011DEE600D3837B /* PBFreeAccountCell.swift */; };
@@ -68,6 +70,8 @@
 		B00D05D120137BBD0031CE82 /* PBShareLimitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PBShareLimitCell.xib; sourceTree = "<group>"; };
 		B00D05D420137BE20031CE82 /* PBDollarLimitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBDollarLimitCell.swift; sourceTree = "<group>"; };
 		B00D05D520137BE20031CE82 /* PBDollarLimitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PBDollarLimitCell.xib; sourceTree = "<group>"; };
+		B0983B7920148AD7003AB028 /* PostDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDescriptionVC.swift; sourceTree = "<group>"; };
+		B0983B7A20148AD7003AB028 /* PostDescriptionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDescriptionVC.xib; sourceTree = "<group>"; };
 		B0A020452011DEE600D3837B /* PBAccountTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBAccountTypeVC.swift; sourceTree = "<group>"; };
 		B0A020462011DEE600D3837B /* PBAccountTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBAccountTypeVC.xib; sourceTree = "<group>"; };
 		B0A020472011DEE600D3837B /* PBFreeAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBFreeAccountCell.swift; sourceTree = "<group>"; };
@@ -225,6 +229,15 @@
 			path = RevealSettingVC;
 			sourceTree = "<group>";
 		};
+		B0983B7820148AAD003AB028 /* PostDescription */ = {
+			isa = PBXGroup;
+			children = (
+				B0983B7920148AD7003AB028 /* PostDescriptionVC.swift */,
+				B0983B7A20148AD7003AB028 /* PostDescriptionVC.xib */,
+			);
+			path = PostDescription;
+			sourceTree = "<group>";
+		};
 		B0A11BF12012438700EE29EE /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +282,7 @@
 		B0F4CA81200F20B500F39409 /* LoginViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B0983B7820148AAD003AB028 /* PostDescription */,
 				B00D05CB20137B750031CE82 /* RevealSettingVC */,
 				846ED28D2011E009004749ED /* SignInVC */,
 				846ED28C2011DFF0004749ED /* SignUpVC */,
@@ -350,6 +364,7 @@
 				B00D05D720137BE20031CE82 /* PBDollarLimitCell.xib in Resources */,
 				B0A43686201086A500DDBA7C /* PBSocialLoginCell.xib in Resources */,
 				B0A4368D20109F7600DDBA7C /* PBLogoCell.xib in Resources */,
+				B0983B7C20148AD7003AB028 /* PostDescriptionVC.xib in Resources */,
 				B0A436962010BF6900DDBA7C /* AddProfilePhotoCell.xib in Resources */,
 				B0A436922010BD5200DDBA7C /* PBHeaderCell.xib in Resources */,
 				B0F4CA7A200F20A400F39409 /* LaunchScreen.storyboard in Resources */,
@@ -448,6 +463,7 @@
 				B0A0204B2011DEE600D3837B /* PBAccountTypeVC.swift in Sources */,
 				846ED2942011EFEA004749ED /* MBProgressHUD.m in Sources */,
 				B0F4CA70200F20A400F39409 /* AppDelegate.swift in Sources */,
+				B0983B7B20148AD7003AB028 /* PostDescriptionVC.swift in Sources */,
 				B0A436A52010E61100DDBA7C /* PBLoginOptionsVC.swift in Sources */,
 				846ED2972011F1E2004749ED /* ValidationHelper.swift in Sources */,
 				B0A436812010867000DDBA7C /* PBEmailAndPasswrdCell.swift in Sources */,
