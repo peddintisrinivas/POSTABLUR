@@ -83,8 +83,11 @@ class PBSignUPVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
     {
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            let resizedImage = chosenImage.resizeImage(image: chosenImage, newWidth: self.imageWidth)!
-            self.uploadprofileImageToServer(selectedImage: resizedImage)
+            let profileCell = AddProfilePhotoCell()
+            profileCell.uploadBtn.setImage(chosenImage, for: .normal)
+            
+            /*let resizedImage = chosenImage.resizeImage(image: chosenImage, newWidth: self.imageWidth)!
+            self.uploadprofileImageToServer(selectedImage: resizedImage)*/
         }
         
         dismiss(animated: true, completion: nil)

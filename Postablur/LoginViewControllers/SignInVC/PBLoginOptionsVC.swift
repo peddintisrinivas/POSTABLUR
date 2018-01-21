@@ -17,6 +17,12 @@ class PBLoginOptionsVC: UIViewController
     @IBOutlet weak var loginTableView: UITableView!
     
     var appdelegate : AppDelegate!
+    
+    var socialEmail : String!
+    var socialRegistrationType : String!
+    var socialProvider : String!
+    var socialAccessToken : AnyObject!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -89,6 +95,12 @@ class PBLoginOptionsVC: UIViewController
                         let name = dict["name"] as! String
                         let fbId = dict["id"] as! String
                         
+                        self.socialEmail = email
+                        self.socialRegistrationType = "3"
+                        self.socialProvider = "Facebook"
+                        self.socialAccessToken = FBSDKAccessToken.current()
+                        
+                        
                         let profileImageUrl = "https://graph.facebook.com/\(fbId)/picture";
                         
                         let urlString = String(format: "%@/UserRegistration", arguments: [Urls.mainUrl]);
@@ -122,6 +134,8 @@ class PBLoginOptionsVC: UIViewController
                                             }
                                             else
                                             {
+                                                //self.alreadyRegistrationCall()
+                                                
                                                 self.appdelegate.alert(vc: self, message: statusMessage, title: "Facebook SignIn")
                                                 return
                                             }
@@ -207,6 +221,44 @@ class PBLoginOptionsVC: UIViewController
             else
             {
                 self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "Twitter SignIn")
+                return
+            }
+        }
+    }
+    
+    func alreadyRegistrationCall()
+    {
+        let urlString = String(format: "%@/Externalloginprofiledetails", arguments: [Urls.mainUrl]);
+        let requestDict = ["Email": self.socialEmail,"Registrationtype": self.socialRegistrationType,"Provider": self.socialProvider,"ExternalAccessToken": self.socialAccessToken] as [String : Any]
+        
+        self.appdelegate.showActivityIndictor(titleString: "Facebook SignIn", subTitleString: "")
+        
+        PBServiceHelper().post(url: urlString, parameters: requestDict as NSDictionary) { (responseObject : AnyObject?, error : Error?) in
+            
+            self.appdelegate.hideActivityIndicator()
+            
+            if error == nil
+            {
+                if responseObject != nil
+                {
+                    if let responseDict = responseObject as? [String : AnyObject]
+                    {
+                        if let resultArray = responseDict["Results"] as! [NSDictionary]!
+                        {
+                            
+                            
+                        }
+                    }
+                }
+                else
+                {
+                    self.appdelegate.alert(vc: self, message: "Something went wrong", title: "Facebook SignIn")
+                    return
+                }
+            }
+            else
+            {
+                self.appdelegate.alert(vc: self, message: (error?.localizedDescription)!, title: "Facebook SignIn")
                 return
             }
         }
