@@ -95,7 +95,9 @@ extension PBAccountTypeVC : PBPaidAccoutCellDelegate
 {
     func pbnextBtnDidTap()
     {
-        
+        let qrCodeScannerVC = QRCodeScannerVC()
+        self.navigationController?.pushViewController(qrCodeScannerVC, animated: true)
+
     }
 }
 
