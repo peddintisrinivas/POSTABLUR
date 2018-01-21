@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitePostablur" translatesAutoresizingMaskIntoConstraints="NO" id="lkG-oR-lWs">
-                                <rect key="frame" x="170" y="41" width="89" height="80"/>
+                                <rect key="frame" x="170" y="41" width="89" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lkG-oR-lWs" secondAttribute="height" multiplier="89:86" id="G0w-g7-xCE"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postablur" translatesAutoresizingMaskIntoConstraints="NO" id="gdx-hr-H6M">
                                 <rect key="frame" x="77" y="121" width="260" height="72"/>
@@ -32,25 +35,21 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gdx-hr-H6M" firstAttribute="height" secondItem="7Ur-Eb-aC8" secondAttribute="height" multiplier="72:262" id="Ar9-6z-ts0"/>
-                            <constraint firstItem="gdx-hr-H6M" firstAttribute="centerX" secondItem="7Ur-Eb-aC8" secondAttribute="centerX" id="J1b-NH-rl7"/>
-                            <constraint firstItem="gdx-hr-H6M" firstAttribute="width" secondItem="7Ur-Eb-aC8" secondAttribute="width" multiplier="260:414" id="Lq8-TC-Yzo"/>
-                            <constraint firstItem="lkG-oR-lWs" firstAttribute="width" secondItem="7Ur-Eb-aC8" secondAttribute="width" multiplier="89:414" id="PNp-B9-qza"/>
-                            <constraint firstItem="lkG-oR-lWs" firstAttribute="centerX" secondItem="7Ur-Eb-aC8" secondAttribute="centerX" constant="7" id="VLS-hl-PnT"/>
-                            <constraint firstItem="lkG-oR-lWs" firstAttribute="centerY" secondItem="7Ur-Eb-aC8" secondAttribute="centerY" constant="-50" id="cgV-oi-hUD"/>
-                            <constraint firstItem="lkG-oR-lWs" firstAttribute="height" secondItem="7Ur-Eb-aC8" secondAttribute="height" multiplier="80:262" id="qqe-vE-jK0"/>
-                            <constraint firstItem="gdx-hr-H6M" firstAttribute="top" secondItem="lkG-oR-lWs" secondAttribute="bottom" id="z0w-Lx-G6p"/>
+                            <constraint firstItem="lkG-oR-lWs" firstAttribute="top" secondItem="7Ur-Eb-aC8" secondAttribute="top" constant="41" id="8TT-z7-Y76"/>
+                            <constraint firstItem="gdx-hr-H6M" firstAttribute="centerX" secondItem="7Ur-Eb-aC8" secondAttribute="centerX" id="gDe-Kf-jT5"/>
+                            <constraint firstItem="lkG-oR-lWs" firstAttribute="centerX" secondItem="7Ur-Eb-aC8" secondAttribute="centerX" constant="7" id="kEK-rI-ad7"/>
+                            <constraint firstItem="gdx-hr-H6M" firstAttribute="top" secondItem="lkG-oR-lWs" secondAttribute="bottom" constant="-6" id="xIK-Gt-7rs"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="7Ur-Eb-aC8" secondAttribute="trailing" id="3xH-HT-dbD"/>
-                    <constraint firstItem="7Ur-Eb-aC8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="en0-G5-A4P"/>
-                    <constraint firstItem="7Ur-Eb-aC8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gqU-HO-7CM"/>
-                    <constraint firstItem="7Ur-Eb-aC8" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="s75-mK-MEE"/>
-                </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="7Ur-Eb-aC8" secondAttribute="trailing" id="01t-ho-3jS"/>
+                <constraint firstItem="7Ur-Eb-aC8" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="5RI-Nv-jfv"/>
+                <constraint firstItem="7Ur-Eb-aC8" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" id="fR9-ce-Dad"/>
+                <constraint firstItem="7Ur-Eb-aC8" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="iIT-Pv-4OX"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="44" y="41.5"/>
         </tableViewCell>

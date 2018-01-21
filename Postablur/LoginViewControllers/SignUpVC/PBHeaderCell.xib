@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,13 +24,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhiteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VDA-8H-cTp">
-                                <rect key="frame" x="111" y="36" width="209" height="58"/>
+                                <rect key="frame" x="111" y="28" width="209" height="58"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-Tq-oHa">
-                                <rect key="frame" x="25" y="52" width="40" height="40"/>
+                                <rect key="frame" x="21" y="36" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Mxv-fB-9yE"/>
-                                    <constraint firstAttribute="width" constant="40" id="NCw-wa-NYr"/>
+                                    <constraint firstAttribute="width" secondItem="eeV-Tq-oHa" secondAttribute="height" multiplier="1:1" id="K4X-ai-iDC"/>
                                 </constraints>
                                 <state key="normal" image="keyboardBackspace"/>
                                 <connections>
@@ -40,12 +39,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VDA-8H-cTp" firstAttribute="top" secondItem="EaX-L4-OHv" secondAttribute="top" constant="36" id="0eq-jo-ahd"/>
-                            <constraint firstItem="VDA-8H-cTp" firstAttribute="centerX" secondItem="EaX-L4-OHv" secondAttribute="centerX" constant="8" id="8YJ-IH-sP5"/>
-                            <constraint firstItem="eeV-Tq-oHa" firstAttribute="leading" secondItem="EaX-L4-OHv" secondAttribute="leading" constant="25" id="VLo-bn-qV6"/>
-                            <constraint firstItem="VDA-8H-cTp" firstAttribute="height" secondItem="EaX-L4-OHv" secondAttribute="height" multiplier="58:113" id="Yop-62-9wX"/>
-                            <constraint firstItem="VDA-8H-cTp" firstAttribute="width" secondItem="EaX-L4-OHv" secondAttribute="width" multiplier="209:414" id="pEz-JE-d0u"/>
-                            <constraint firstItem="eeV-Tq-oHa" firstAttribute="top" secondItem="EaX-L4-OHv" secondAttribute="top" constant="52" id="uMi-TD-ReU"/>
+                            <constraint firstItem="VDA-8H-cTp" firstAttribute="centerX" secondItem="EaX-L4-OHv" secondAttribute="centerX" constant="8" id="M5k-fU-HlU"/>
+                            <constraint firstItem="eeV-Tq-oHa" firstAttribute="centerY" secondItem="EaX-L4-OHv" secondAttribute="centerY" id="T3R-eT-NOo"/>
+                            <constraint firstItem="VDA-8H-cTp" firstAttribute="centerY" secondItem="EaX-L4-OHv" secondAttribute="centerY" id="eGh-lF-WHp"/>
+                            <constraint firstItem="eeV-Tq-oHa" firstAttribute="top" secondItem="EaX-L4-OHv" secondAttribute="top" constant="36" id="iSK-39-9d5"/>
+                            <constraint firstItem="eeV-Tq-oHa" firstAttribute="leading" secondItem="EaX-L4-OHv" secondAttribute="leading" constant="21" id="lKN-tM-mX9"/>
                         </constraints>
                     </view>
                 </subviews>
