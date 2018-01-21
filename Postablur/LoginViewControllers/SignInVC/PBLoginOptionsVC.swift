@@ -212,11 +212,7 @@ class PBLoginOptionsVC: UIViewController
         }
     }
     
-    func saveSocialLogindetailsToServer(faceBookResponse : [String : AnyObject], fbAccessToken : String)
-    {
-
-        
-    }
+  
 }
 
 extension PBLoginOptionsVC : UITextFieldDelegate
