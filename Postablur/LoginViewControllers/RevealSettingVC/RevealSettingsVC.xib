@@ -66,7 +66,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlurPicEnlarged" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-ei-l6P">
                     <rect key="frame" x="0.0" y="102" width="414" height="369"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-7G-RlW">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IKz-7G-RlW">
                     <rect key="frame" x="0.0" y="471" width="414" height="202"/>
                     <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>

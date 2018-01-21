@@ -21,10 +21,20 @@ class PBDollarLimitCell: UITableViewCell {
     @IBOutlet weak var fiveDollarButton : UIButton!
     @IBOutlet weak var tenDollarButton : UIButton!
     var dollarLimitDelegate : PBDollarLimitCellDelegate? = nil
+    @IBOutlet weak var dollarLabel : UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+      
+        let labelfontSize = ((UIScreen.main.bounds.size.width) / CGFloat(414.0)) * 16
+        let roundedBoldfontSize = floor(labelfontSize)
+        self.dollarLabel.font = self.dollarLabel.font.withSize(roundedBoldfontSize)
+        
+        let buttonfonSize = ((UIScreen.main.bounds.size.width) / CGFloat(414.0)) * 20
+        let roundedButtonfontSize = floor(buttonfonSize)
+        self.oneDollarButton.titleLabel?.font = UIFont(name: FontName.AvenirBlack.rawValue, size: roundedButtonfontSize)
+        self.fiveDollarButton.titleLabel?.font = UIFont(name: FontName.AvenirBlack.rawValue, size: roundedButtonfontSize)
+        self.tenDollarButton.titleLabel?.font = UIFont(name: FontName.AvenirBlack.rawValue, size: roundedButtonfontSize)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

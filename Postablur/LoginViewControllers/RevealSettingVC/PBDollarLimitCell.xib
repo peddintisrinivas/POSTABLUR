@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +33,7 @@
                         <rect key="frame" x="0.0" y="-1" width="414" height="77"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SET A DOLLAR LIMIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOJ-VM-8bP">
-                                <rect key="frame" x="29" y="30" width="164" height="18"/>
+                                <rect key="frame" x="0.0" y="30" width="193" height="18"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3Y-hL-iEo">
-                                <rect key="frame" x="275" y="15" width="46" height="47"/>
+                                <rect key="frame" x="275" y="15" width="46" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="$5">
@@ -62,7 +61,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnI-gH-CNV">
-                                <rect key="frame" x="347" y="15" width="46" height="47"/>
+                                <rect key="frame" x="347" y="15" width="46" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="$10">
@@ -73,46 +72,47 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE AMOUNT OF LIKES NEEDED TO REVEAL YOUR POST." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7D6-IF-rXj">
-                                <rect key="frame" x="130" y="67" width="263" height="13"/>
+                                <rect key="frame" x="152" y="67" width="241" height="10"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="263" id="7UU-7G-WD7"/>
+                                    <constraint firstAttribute="height" constant="10" id="qCz-AA-hqQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="162-Nb-YJR" firstAttribute="baseline" secondItem="IOJ-VM-8bP" secondAttribute="firstBaseline" id="1j0-5H-PBB"/>
-                            <constraint firstItem="GnI-gH-CNV" firstAttribute="height" secondItem="M3Y-hL-iEo" secondAttribute="height" id="75z-Kx-jvA"/>
-                            <constraint firstItem="162-Nb-YJR" firstAttribute="width" secondItem="74Y-HC-XmM" secondAttribute="width" multiplier="46:414" id="7TM-KI-p8G"/>
-                            <constraint firstItem="7D6-IF-rXj" firstAttribute="top" secondItem="GnI-gH-CNV" secondAttribute="bottom" constant="5" id="7ml-bt-mLE"/>
-                            <constraint firstAttribute="trailing" secondItem="GnI-gH-CNV" secondAttribute="trailing" constant="21" id="8JT-YU-Wki"/>
-                            <constraint firstItem="162-Nb-YJR" firstAttribute="height" secondItem="74Y-HC-XmM" secondAttribute="height" multiplier="46:77" id="FzG-lO-0gp"/>
-                            <constraint firstItem="162-Nb-YJR" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="Wgn-MB-Llc"/>
-                            <constraint firstItem="GnI-gH-CNV" firstAttribute="width" secondItem="M3Y-hL-iEo" secondAttribute="width" id="XCJ-nR-KaV"/>
-                            <constraint firstItem="7D6-IF-rXj" firstAttribute="trailing" secondItem="GnI-gH-CNV" secondAttribute="trailing" id="Zg4-0U-R6T"/>
-                            <constraint firstItem="162-Nb-YJR" firstAttribute="leading" secondItem="74Y-HC-XmM" secondAttribute="leading" constant="204" id="ZjP-QB-nWV"/>
-                            <constraint firstItem="GnI-gH-CNV" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="jwV-xV-FXW"/>
-                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="leading" secondItem="162-Nb-YJR" secondAttribute="trailing" constant="25" id="kZt-dZ-il7"/>
-                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="lbq-CT-jQg"/>
-                            <constraint firstItem="162-Nb-YJR" firstAttribute="leading" secondItem="IOJ-VM-8bP" secondAttribute="trailing" constant="11" id="ljv-Fh-ZRD"/>
-                            <constraint firstItem="IOJ-VM-8bP" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="ojT-ii-qNw"/>
-                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="width" secondItem="162-Nb-YJR" secondAttribute="width" id="x4h-AU-cVS"/>
-                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="height" secondItem="162-Nb-YJR" secondAttribute="height" constant="1" id="zNj-XC-TOG"/>
+                            <constraint firstItem="GnI-gH-CNV" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="1mr-gH-gnd"/>
+                            <constraint firstItem="GnI-gH-CNV" firstAttribute="height" secondItem="74Y-HC-XmM" secondAttribute="height" multiplier="46:77" id="7RE-Px-yyi"/>
+                            <constraint firstItem="162-Nb-YJR" firstAttribute="width" secondItem="74Y-HC-XmM" secondAttribute="width" multiplier="46:414" id="BYF-P5-d1q"/>
+                            <constraint firstItem="IOJ-VM-8bP" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="CsB-Rk-CuP"/>
+                            <constraint firstItem="GnI-gH-CNV" firstAttribute="width" secondItem="74Y-HC-XmM" secondAttribute="width" multiplier="46:414" id="PFI-rQ-ReU"/>
+                            <constraint firstItem="162-Nb-YJR" firstAttribute="height" secondItem="74Y-HC-XmM" secondAttribute="height" multiplier="46:77" id="PTS-nB-MQI"/>
+                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="leading" secondItem="162-Nb-YJR" secondAttribute="trailing" constant="25" id="TPX-xY-w27"/>
+                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="f8Z-Lg-y4b"/>
+                            <constraint firstItem="7D6-IF-rXj" firstAttribute="top" secondItem="GnI-gH-CNV" secondAttribute="bottom" constant="6" id="irC-Kb-fqf"/>
+                            <constraint firstItem="162-Nb-YJR" firstAttribute="centerY" secondItem="74Y-HC-XmM" secondAttribute="centerY" id="lBm-cd-sSH"/>
+                            <constraint firstItem="IOJ-VM-8bP" firstAttribute="leading" secondItem="74Y-HC-XmM" secondAttribute="leading" id="oeC-uu-yUb"/>
+                            <constraint firstItem="7D6-IF-rXj" firstAttribute="trailing" secondItem="GnI-gH-CNV" secondAttribute="trailing" id="q33-Hl-h5b"/>
+                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="width" secondItem="74Y-HC-XmM" secondAttribute="width" multiplier="46:414" id="rNi-Lj-Y6B"/>
+                            <constraint firstItem="162-Nb-YJR" firstAttribute="leading" secondItem="IOJ-VM-8bP" secondAttribute="trailing" constant="11" id="t3c-0F-kNW"/>
+                            <constraint firstItem="M3Y-hL-iEo" firstAttribute="height" secondItem="74Y-HC-XmM" secondAttribute="height" multiplier="46:77" id="voB-Un-VjK"/>
+                            <constraint firstItem="GnI-gH-CNV" firstAttribute="leading" secondItem="M3Y-hL-iEo" secondAttribute="trailing" constant="26" id="w2m-XI-FTs"/>
+                            <constraint firstAttribute="trailing" secondItem="GnI-gH-CNV" secondAttribute="trailing" constant="21" id="yRw-yY-tCJ"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="74Y-HC-XmM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MXv-kL-gfb"/>
-                    <constraint firstItem="74Y-HC-XmM" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="fO4-as-BhY"/>
-                    <constraint firstAttribute="trailing" secondItem="74Y-HC-XmM" secondAttribute="trailing" id="g1f-1Y-BYN"/>
-                    <constraint firstItem="74Y-HC-XmM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-1" id="sTL-EQ-SjX"/>
+                    <constraint firstItem="74Y-HC-XmM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-1" id="A9a-ig-9CY"/>
+                    <constraint firstItem="74Y-HC-XmM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gn2-Js-ZWU"/>
+                    <constraint firstAttribute="trailing" secondItem="74Y-HC-XmM" secondAttribute="trailing" id="hRG-cv-Edl"/>
+                    <constraint firstItem="74Y-HC-XmM" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="ksu-aJ-Zgi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dollarLabel" destination="IOJ-VM-8bP" id="pP6-1X-sX5"/>
                 <outlet property="fiveDollarButton" destination="M3Y-hL-iEo" id="JiV-mj-X8P"/>
                 <outlet property="oneDollarButton" destination="162-Nb-YJR" id="N2c-jE-Zcz"/>
                 <outlet property="tenDollarButton" destination="GnI-gH-CNV" id="35t-KQ-O3e"/>
