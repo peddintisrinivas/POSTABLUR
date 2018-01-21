@@ -44,8 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         else if (registrationType == 3)
         {
             handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url as URL!, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-            
-            //handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
         }
         return handled
         
